@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final AppBar appBar;
-  final EdgeInsets padding;
-  const CustomAppBar({Key? key, required this.appBar, required this.padding}) : super(key: key);
+  final String title;
+  const CustomAppBar({Key? key, required this.title,})
+      : super(key: key);
 
   @override
   Size get preferredSize => const Size.fromHeight(56.0);
@@ -11,10 +11,27 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: padding,
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Center(
-        child: appBar,
-      ),
-    );
+        child: AppBar(
+            title: Text(
+              '${this.title}',
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15.0),
+                  bottomRight: Radius.circular(15.0),
+                ),
+                side: BorderSide(color: Colors.black, width: 2.0)),
+            centerTitle: true,
+            backgroundColor: Colors.white,
+          ),
+        ),
+      );
   }
 }
