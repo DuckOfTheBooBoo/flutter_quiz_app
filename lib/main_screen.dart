@@ -66,12 +66,12 @@ class MainContent extends StatelessWidget {
                 ],
               ),
               child: Padding(
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(10.0),
                 child: Row(
                   children: [
                     Container(
-                      width: 60,
-                      height: 60,
+                      width: 70,
+                      height: 70,
                       decoration: ShapeDecoration(
                           image: DecorationImage(
                             image: AssetImage(
