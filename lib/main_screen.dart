@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'model/questions.dart';
+import 'quiz_screen.dart';
 import 'custom_appbar.dart';
 
 class MainScreen extends StatelessWidget {
@@ -7,7 +8,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(title: 'QUIZ APP'),
       body: MainContent(),
     );
@@ -25,17 +26,20 @@ class MainContent extends StatelessWidget {
         final Question question = questions[index];
 
         return InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => const QuizScreen()));
+          },
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
             child: Container(
               decoration: ShapeDecoration(
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(width: 2),
+                  side: const BorderSide(width: 2),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                shadows: [
+                shadows: const [
                   BoxShadow(
                     color: Color(0x3F000000),
                     blurRadius: 4,
@@ -45,7 +49,7 @@ class MainContent extends StatelessWidget {
                 ],
               ),
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
                     Container(
@@ -68,7 +72,7 @@ class MainContent extends StatelessWidget {
                         Text(
                           question.name,
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -77,7 +81,7 @@ class MainContent extends StatelessWidget {
                         Text(
                           '${question.questionNum} questions',
                           textAlign: TextAlign.left,
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
