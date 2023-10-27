@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'custom_appbar.dart';
 
@@ -24,10 +26,41 @@ class QuizScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       // TODO: fix back button icon not loaded
       appBar: CustomAppBar(title: 'Linux'),
-      body: QuizContainer(),
+      body: WillPopScope(
+        child: QuizContainer(),
+        onWillPop: () async {
+          return await showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (context) => BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+              child: AlertDialog(
+                title: Text('You\'re leaving the quiz'),
+                content: Text(
+                    'Are you sure you want to quit?\nAny answered questions will not be saved!'),
+                actions: [
+                  RoundedButton(
+                    text: 'No',
+                    onPressed: () => Navigator.pop(context, false),
+                  ),
+                  RoundedButton(
+                    text: 'Yes',
+                    onPressed: () => Navigator.pop(context, true),
+                  )
+                ],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  // TODO: make border thicker
+                  side: const BorderSide(width: 2),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }
@@ -35,11 +68,11 @@ class QuizScreen extends StatelessWidget {
 class RoundedButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
-  const RoundedButton({
-    Key? key,
+  RoundedButton({
+    super.key,
     required this.text,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -143,67 +176,67 @@ class _QuizState extends State<Quiz> {
     return Wrap(
       children: [
         Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Question 1',
-                style: quizHeaderStyle,
-              ),
-              Text(
-                'Lorem ipsum some question about linux or specific topic haiya chaw ni ma le',
-                style: quizQuestionStyle,
-              ),
-              Column(
-                children: options.map((Map<String, dynamic> option) {
-                  return ListTile(
-                    onTap: () {},
-                    title: Text(
-                      option['title'],
-                      style: quizAnswerStyle,
-                    ),
-                    leading: Radio(
-                      value: option['title'],
-                      groupValue: options,
-                      onChanged: (value) {
-                        setState(() {
-                          selectedAnswer = value;
-                        });
-                      },
-                    ),
-                    contentPadding: EdgeInsets.zero,
-                    visualDensity: VisualDensity.compact,
-                  );
-                }).toList(),
-              ),
-              SizedBox(height: 15),
-              Container(
-                color: Colors.white,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 3.0),
-                        child: RoundedButton(
-                          text: 'Previous',
-                          onPressed: () {},
-                        ),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Question 1',
+              style: quizHeaderStyle,
+            ),
+            Text(
+              'Lorem ipsum some question about linux or specific topic haiya chaw ni ma le',
+              style: quizQuestionStyle,
+            ),
+            Column(
+              children: options.map((Map<String, dynamic> option) {
+                return ListTile(
+                  onTap: () {},
+                  title: Text(
+                    option['title'],
+                    style: quizAnswerStyle,
+                  ),
+                  leading: Radio(
+                    value: option['title'],
+                    groupValue: options,
+                    onChanged: (value) {
+                      setState(() {
+                        selectedAnswer = value;
+                      });
+                    },
+                  ),
+                  contentPadding: EdgeInsets.zero,
+                  visualDensity: VisualDensity.compact,
+                );
+              }).toList(),
+            ),
+            SizedBox(height: 15),
+            Container(
+              color: Colors.white,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 3.0),
+                      child: RoundedButton(
+                        text: 'Previous',
+                        onPressed: () {},
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 3.0),
-                        child: RoundedButton(
-                          text: 'Next',
-                          onPressed: () {},
-                        ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 3.0),
+                      child: RoundedButton(
+                        text: 'Next',
+                        onPressed: () {},
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
         Center(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 15),
