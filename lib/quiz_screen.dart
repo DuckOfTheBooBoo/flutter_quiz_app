@@ -1,13 +1,11 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'custom_appbar.dart';
+import 'rounded_button.dart';
+
 
 const TextStyle quizHeaderStyle =
     TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 32.0);
-
-const TextStyle quizButtonTextStyle =
-    TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 13.0);
 
 const TextStyle quizQuestionStyle = TextStyle(
   color: Colors.black,
@@ -60,36 +58,6 @@ class QuizScreen extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class RoundedButton extends StatelessWidget {
-  final String text;
-  final Function() onPressed;
-  RoundedButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton(
-      onPressed: onPressed,
-      style: OutlinedButton.styleFrom(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          // TODO: make border thicker
-          side: const BorderSide(width: 2),
-        ),
-      ),
-      child: Text(
-        text,
-        style: quizButtonTextStyle,
       ),
     );
   }
