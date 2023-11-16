@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/questions.dart';
+import '../model/quiz.dart';
 import 'quiz_screen.dart';
 import '../components/custom_appbar.dart';
 import 'result_screen.dart';
@@ -22,14 +22,14 @@ class MainContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: questions.length,
+      itemCount: quizez.length,
       itemBuilder: (context, index) {
-        final Question question = questions[index];
+        final Quiz quiz = quizez[index];
 
         return InkWell(
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => const QuizScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const QuizScreen()));
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -59,7 +59,7 @@ class MainContent extends StatelessWidget {
                       decoration: ShapeDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                              question.imageAsset,
+                              quiz.imageAsset,
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -71,7 +71,7 @@ class MainContent extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          question.name,
+                          quiz.name,
                           textAlign: TextAlign.left,
                           style: const TextStyle(
                             color: Colors.black,
@@ -80,7 +80,7 @@ class MainContent extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${question.questionNum} questions',
+                          '${quiz.questionNum} questions',
                           textAlign: TextAlign.left,
                           style: const TextStyle(
                             color: Colors.black,
