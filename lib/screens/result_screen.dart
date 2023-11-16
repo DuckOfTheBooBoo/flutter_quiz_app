@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'rounded_button.dart';
-import 'styles.dart';
+import '../components/rounded_button.dart';
+import '../constants.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({Key? key}) : super(key: key);

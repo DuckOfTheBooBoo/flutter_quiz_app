@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'custom_appbar.dart';
-import 'rounded_button.dart';
-import 'styles.dart';
+import '../components/custom_appbar.dart';
+import '../components/rounded_button.dart';
+import '../constants.dart';
 
 class QuizScreen extends StatelessWidget {
   const QuizScreen({Key? key}) : super(key: key);
@@ -103,26 +103,6 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   // TODO: fix this shit
-  final List<Map<String, dynamic>> options = [
-    {
-      'title': 'Answer 1',
-      'selected': false,
-    },
-    {
-      'title': 'Answer 2',
-      'selected': false,
-    },
-    {
-      'title': 'Answer 3',
-      'selected': false,
-    },
-    {
-      'title': 'Answer 4',
-      'selected': false,
-    },
-  ];
-
-  var selectedAnswer;
 
   @override
   Widget build(BuildContext context) {
@@ -139,28 +119,8 @@ class _QuizState extends State<Quiz> {
               'Lorem ipsum some question about linux or specific topic haiya chaw ni ma le',
               style: quizQuestionStyle,
             ),
-            Column(
-              children: options.map((Map<String, dynamic> option) {
-                return ListTile(
-                  onTap: () {},
-                  title: Text(
-                    option['title'],
-                    style: quizAnswerStyle,
-                  ),
-                  leading: Radio(
-                    value: option['title'],
-                    groupValue: options,
-                    onChanged: (value) {
-                      setState(() {
-                        selectedAnswer = value;
-                      });
-                    },
-                  ),
-                  contentPadding: EdgeInsets.zero,
-                  visualDensity: VisualDensity.compact,
-                );
-              }).toList(),
-            ),
+            // Answers
+
             SizedBox(height: 15),
             Container(
               color: Colors.white,
