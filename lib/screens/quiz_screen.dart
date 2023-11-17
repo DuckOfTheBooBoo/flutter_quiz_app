@@ -4,89 +4,11 @@ import '../components/custom_appbar.dart';
 import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../model/question.dart';
-
-// const List<Map<String, dynamic>> rawQuestions = [
-//   {
-//     "id": 1035,
-//     "question":
-//         "Which of the following commands will install Ansible on Ubuntu?",
-//     "answers": {
-//       "answer_a": "sudo apt install ansible",
-//       "answer_b": "sudo apt install ansible-controller",
-//       "answer_c": "sudo apt install ansible-master",
-//       "answer_d": "sudo apt install ansible-server",
-//       "answer_e": null,
-//       "answer_f": null
-//     },
-//     "tags": [
-//       {"name": "DevOps"}
-//     ],
-//     "category": "DevOps",
-//     "difficulty": "Easy",
-//     "correct_answer": "answer_a"
-//   },
-//   {
-//     "id": 914,
-//     "question": "The Kubernetes Network proxy runs on which node?",
-//     "answers": {
-//       "answer_a": "Master Node",
-//       "answer_b": "Worker Node",
-//       "answer_c": "All the nodes",
-//       "answer_d": "None of the mentioned",
-//       "answer_e": null,
-//       "answer_f": null
-//     },
-//     "tags": [
-//       {"name": "Kubernetes"}
-//     ],
-//     "category": "DevOps",
-//     "difficulty": "Easy",
-//     "correct_answer": "answer_c"
-//   },
-//   {
-//     "id": 899,
-//     "question":
-//         "Kubernetes uses _____________ to connect to ouath 2 providers to offload the authentication to external services.",
-//     "answers": {
-//       "answer_a": "Webhook Token Authentication",
-//       "answer_b": "Keystone Password",
-//       "answer_c": "OpenID Connect Tokens",
-//       "answer_d": "Authentication Proxy",
-//       "answer_e": null,
-//       "answer_f": null
-//     },
-//     "tags": [
-//       {"name": "Kubernetes"}
-//     ],
-//     "category": "DevOps",
-//     "difficulty": "Easy",
-//     "correct_answer": "answer_c"
-//   },
-//   {
-//     "id": 903,
-//     "question": "The command to create Kubernetes service is",
-//     "answers": {
-//       "answer_a": "kubectl expose",
-//       "answer_b": "kubectl deploy",
-//       "answer_c": "kubectl run",
-//       "answer_d": "kubectl set service",
-//       "answer_e": null,
-//       "answer_f": null
-//     },
-//     "tags": [
-//       {"name": "Kubernetes"}
-//     ],
-//     "category": "DevOps",
-//     "difficulty": "Easy",
-//     "correct_answer": "answer_a"
-//   }
-// ];
-
-// List<Question> questions =
-//     rawQuestions.map((question) => Question.fromJson(question)).toList();
+import '../screens/result_screen.dart';
 
 class QuizScreen extends StatefulWidget {
   final String quizName;
+
   QuizScreen({Key? key, required this.quizName}) : super(key: key);
 
   @override
@@ -95,6 +17,8 @@ class QuizScreen extends StatefulWidget {
 
 class _QuizScreenState extends State<QuizScreen> {
   final PageController _pageController = PageController();
+
+  QuizResultMap quizResult = Map();
 
   void _previousPage() {
     _pageController.previousPage(
@@ -112,6 +36,14 @@ class _QuizScreenState extends State<QuizScreen> {
         future: getQuestions(widget.quizName.toLowerCase()),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
+            // Create placeholder inside quizResult
+            for (var question in snapshot.data!) {
+              quizResult[question.id] = {
+                "correct_answer": question.correctAnswer,
+                "selected_answer": null,
+              };
+            }
+
             return Scaffold(
               // TODO: fix back button icon not loaded
               appBar: CustomAppBar(title: widget.quizName),
@@ -150,11 +82,13 @@ class _QuizScreenState extends State<QuizScreen> {
                   controller: _pageController,
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) => QuizCard(
+                    questions: snapshot.data!,
                     question: snapshot.data![index],
                     questionLength: snapshot.data!.length,
                     index: index,
                     previousCard: _previousPage,
                     nextCard: _nextPage,
+                    quizResult: quizResult,
                   ),
                 ),
               ),
@@ -173,10 +107,13 @@ class _QuizScreenState extends State<QuizScreen> {
 }
 
 class QuizCard extends StatefulWidget {
+  final List<Question> questions;
   final Question question;
   final int questionLength, index;
   final VoidCallback previousCard;
   final VoidCallback nextCard;
+  QuizResultMap quizResult;
+
   QuizCard({
     Key? key,
     required this.question,
@@ -184,13 +121,16 @@ class QuizCard extends StatefulWidget {
     required this.index,
     required this.previousCard,
     required this.nextCard,
+    required this.quizResult,
+    required this.questions,
   }) : super(key: key);
 
   @override
   _QuizCardState createState() => _QuizCardState();
 }
 
-class _QuizCardState extends State<QuizCard> with AutomaticKeepAliveClientMixin<QuizCard> {
+class _QuizCardState extends State<QuizCard>
+    with AutomaticKeepAliveClientMixin<QuizCard> {
   String? _selectedAnswer;
 
   void _handleAnswerChange(String? value) {
@@ -198,15 +138,16 @@ class _QuizCardState extends State<QuizCard> with AutomaticKeepAliveClientMixin<
       _selectedAnswer = value;
       int questionId = widget.question.id;
       widget.quizResult[questionId] = {
-        "correct_answer":
-            widget.question.correctAnswer,
+        "correct_answer": widget.question.correctAnswer,
         "selected_answer": _selectedAnswer
       };
     });
+    print('Hi');
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Center(
@@ -253,11 +194,7 @@ class _QuizCardState extends State<QuizCard> with AutomaticKeepAliveClientMixin<
                                 value: key,
                                 groupValue: _selectedAnswer,
                                 activeColor: Colors.black,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _selectedAnswer = value!;
-                                  });
-                                },
+                                onChanged: _handleAnswerChange,
                               ),
                             ),
                           )
@@ -291,7 +228,17 @@ class _QuizCardState extends State<QuizCard> with AutomaticKeepAliveClientMixin<
                                     )
                                   : RoundedButton(
                                       text: 'Submit',
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => ResultScreen(
+                                              questions: widget.questions,
+                                              quizResult: widget.quizResult,
+                                            ),
+                                          ),
+                                        );
+                                      },
                                     ),
                             ),
                           ),
@@ -316,4 +263,7 @@ class _QuizCardState extends State<QuizCard> with AutomaticKeepAliveClientMixin<
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

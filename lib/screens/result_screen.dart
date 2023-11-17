@@ -1,12 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:collection/collection.dart' show IterableZip;
 import '../components/rounded_button.dart';
 import '../constants.dart';
+import '../model/question.dart';
 
 class ResultScreen extends StatelessWidget {
-  const ResultScreen({Key? key}) : super(key: key);
+  final List<Question> questions;
+  final QuizResultMap quizResult;
+  int correctAnswerCount = 0;
+  ResultData resultData = [];
+
+  ResultScreen({
+    Key? key,
+    required this.questions,
+    required this.quizResult,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    for (Question question in questions) {
+      Map<String, dynamic> data = {
+        "question": question,
+        ...quizResult[question.id]!
+      };
+
+      if (quizResult[question.id]!["selected_answer"] ==
+          question.correctAnswer) {
+        correctAnswerCount++;
+      }
+
+      resultData.add(data);
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -32,7 +57,7 @@ class ResultScreen extends StatelessWidget {
                             ),
                       ),
                       Text(
-                        '4/10',
+                        '$correctAnswerCount/${questions.length}',
                         textAlign: TextAlign.center,
                         style: const TextStyle(
                             color: Colors.black,
@@ -65,7 +90,9 @@ class ResultScreen extends StatelessWidget {
                             onPressed: () {},
                           ),
                         ),
-                        SizedBox(width: 15,),
+                        SizedBox(
+                          width: 15,
+                        ),
                         // Back to Home button
                         Expanded(
                           child: RoundedButton(
@@ -88,15 +115,16 @@ class ResultScreen extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(left: 15.0),
                     child: Text(
-                    'Review',
-                    textAlign: TextAlign.left,
-                        style: TextStyle(
+                      'Review',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
                           color: Colors.black,
                           fontSize: 40,
                           fontWeight: FontWeight.bold
                           // TODO: Change font family
-                        ),
-                  ),),
+                          ),
+                    ),
+                  ),
                   QuizBox(
                     isCorrect: true,
                   ),
