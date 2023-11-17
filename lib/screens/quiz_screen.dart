@@ -190,8 +190,21 @@ class QuizCard extends StatefulWidget {
   _QuizCardState createState() => _QuizCardState();
 }
 
-class _QuizCardState extends State<QuizCard> {
-  String _selectedAnswer = '';
+class _QuizCardState extends State<QuizCard> with AutomaticKeepAliveClientMixin<QuizCard> {
+  String? _selectedAnswer;
+
+  void _handleAnswerChange(String? value) {
+    setState(() {
+      _selectedAnswer = value;
+      int questionId = widget.question.id;
+      widget.quizResult[questionId] = {
+        "correct_answer":
+            widget.question.correctAnswer,
+        "selected_answer": _selectedAnswer
+      };
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
