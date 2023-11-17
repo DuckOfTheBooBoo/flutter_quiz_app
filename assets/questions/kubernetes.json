@@ -1,0 +1,196 @@
+[
+    {
+        "id": 724,
+        "question": "How to list all Kubernetes services in the current namespace?",
+        "answers": {
+            "answer_a": "kubectl get-all services",
+            "answer_b": "kubectl print services",
+            "answer_c": "kubectl dump services",
+            "answer_d": "kubectl get services",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_d"
+    },
+    {
+        "id": 913,
+        "question": "Which of the following are core Kubernetes objects?",
+        "answers": {
+            "answer_a": "Pods, Services, Volumes",
+            "answer_b": "Pods, Docker, Volumes",
+            "answer_c": "Pods, Services, Droplets",
+            "answer_d": "None of the mentioned",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 930,
+        "question": "How can a company deal with a monolithic codebase issue?",
+        "answers": {
+            "answer_a": "By transitioning from a monolithic codebase to a microservice design so that different microservices can be classified as containers.",
+            "answer_b": "By building a large Docker image containing the monolithic codebase and deploying it as a single container to Kubernetes",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 1000,
+        "question": "Kubernetes can be configured in a multi-Master Node configuration. True or False?",
+        "answers": {
+            "answer_a": "True",
+            "answer_b": "False",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 947,
+        "question": "Write a command to create deployment?",
+        "answers": {
+            "answer_a": "kubectl --create f Deployment.yaml \u00e2\u20ac\u201crecord",
+            "answer_b": "kubectl create f Deployment.yaml \u00e2\u20ac\u201crecord",
+            "answer_c": "kubectl create \u00e2\u20ac\u201cf Deployment.yaml \u00e2\u20ac\u201crecord",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 1016,
+        "question": "Which of the following are Kubernetes Objects?",
+        "answers": {
+            "answer_a": "Kubernetes objects are Pod, Service and Volume.",
+            "answer_b": "Kubernetes objects are  Host, Auth and Cluster.",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 723,
+        "question": "Which command is used to create resources in Kubernetes?",
+        "answers": {
+            "answer_a": "kubectl create -f ./my-manifest.yaml",
+            "answer_b": "kubectl deploy -f ./my-manifest.yaml",
+            "answer_c": "kubectl apply -f ./my-manifest.yaml",
+            "answer_d": "kubectl fuse -f ./my-manifest.yaml",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 715,
+        "question": "What language was Kubernetes written in?",
+        "answers": {
+            "answer_a": "Go",
+            "answer_b": "C++",
+            "answer_c": "Java",
+            "answer_d": "C",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 956,
+        "question": "How to remove two pods labelled 'production' and 'development'",
+        "answers": {
+            "answer_a": "$ kubectl delete pods -l 'env in (production, development)'",
+            "answer_b": "$ kubectl trim pods -l 'env in (production, development)'",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 718,
+        "question": "Which command is used to create a Kubernetes service?",
+        "answers": {
+            "answer_a": "kubectl set service",
+            "answer_b": "kubectl create service",
+            "answer_c": "kubectl deploy service",
+            "answer_d": "kubectl expose",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_d"
+    }
+]

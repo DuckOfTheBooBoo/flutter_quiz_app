@@ -1,0 +1,196 @@
+[
+    {
+        "id": 422,
+        "question": "Is the NULL value treated as 0?",
+        "answers": {
+            "answer_a": "True",
+            "answer_b": "False",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 345,
+        "question": "Which type of database management system represents relations using tables?",
+        "answers": {
+            "answer_a": "Network DBMS",
+            "answer_b": "Hierachical DBMS",
+            "answer_c": "Relational DBMS",
+            "answer_d": "Object Oriented DBMS",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    },
+    {
+        "id": 392,
+        "question": "Which among the following have the maximum available bytes?",
+        "answers": {
+            "answer_a": "Varchar",
+            "answer_b": "Text Type",
+            "answer_c": "Both Varchar And Char",
+            "answer_d": "Char",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 214,
+        "question": "What does the WHERE SQL operator does:",
+        "answers": {
+            "answer_a": "restricts the set of rows to the selection of those records for which the condition is true",
+            "answer_b": "converts the value of a column or function to a different type",
+            "answer_c": "changes the order of output rows",
+            "answer_d": "eliminates all row repeats from the result set",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 219,
+        "question": "What does SQL stands for?",
+        "answers": {
+            "answer_a": "Structure query language",
+            "answer_b": "Strong question language",
+            "answer_c": "Structured question language",
+            "answer_d": "Separate query language",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 355,
+        "question": "The command DROP SCHEMA `STUDENTS`; will delete the students database.",
+        "answers": {
+            "answer_a": "True",
+            "answer_b": "False",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 399,
+        "question": "Which of the following is NOT supported by MySQL",
+        "answers": {
+            "answer_a": "Temporary (Hash) Tables",
+            "answer_b": "Stored Procedures",
+            "answer_c": "Regular Expression Matching",
+            "answer_d": "Table Joining",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 372,
+        "question": "What will be the output of the SELECT CASE WHEN NULL = NULL THEN 'YES' ELSE 'NO' END",
+        "answers": {
+            "answer_a": "True",
+            "answer_b": "False",
+            "answer_c": "An Error will be generated",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 206,
+        "question": "SQL (Structured Query Language) is:",
+        "answers": {
+            "answer_a": "imperative programming language",
+            "answer_b": "the language of structured queries",
+            "answer_c": "the language of queries by pattern",
+            "answer_d": "DBMS (DataBase Management System)",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 425,
+        "question": "TCL is used for _______?",
+        "answers": {
+            "answer_a": "Control access to data stored in a database",
+            "answer_b": "Managing the changes made by DML statements",
+            "answer_c": "Defining database schema",
+            "answer_d": "None of the mentioned",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "MySQL"
+            }
+        ],
+        "category": "SQL",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }
+]

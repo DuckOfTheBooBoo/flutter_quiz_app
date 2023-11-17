@@ -1,0 +1,206 @@
+[
+    {
+        "id": 46,
+        "question": "Which of the following answers refers to a software tool used for searching and installing software packages on Debian and Debian-based Linux distributions?",
+        "answers": {
+            "answer_a": "rpm",
+            "answer_b": "apt-rpm",
+            "answer_c": "yum",
+            "answer_d": "apt-get",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_d"
+    },
+    {
+        "id": 14,
+        "question": "What command is used to clear up the command prompt window?",
+        "answers": {
+            "answer_a": "clearit",
+            "answer_b": "clrwin",
+            "answer_c": "clear",
+            "answer_d": "clrscr",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    },
+    {
+        "id": 686,
+        "question": "Which command can be used to write onto other currently logged in user\u00e2\u20ac\u2122s console output terminal.",
+        "answers": {
+            "answer_a": "notify",
+            "answer_b": "alert",
+            "answer_c": "write",
+            "answer_d": "broadcast",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "BASH"
+            }, {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    },
+    {
+        "id": 8,
+        "question": "When do we use the GREP command",
+        "answers": {
+            "answer_a": "When we want to search for a string",
+            "answer_b": "To find a file",
+            "answer_c": "To find a directory",
+            "answer_d": "To show all directories which have the string in their name",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Linux"
+            }, {
+                "name": "BASH"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 18,
+        "question": "Which is the best tool to use for logging in remotely?",
+        "answers": {
+            "answer_a": "rsh",
+            "answer_b": "ssh",
+            "answer_c": "telnet",
+            "answer_d": "login",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 713,
+        "question": "Which command can be used to stop the current executing process in the background?",
+        "answers": {
+            "answer_a": "kill",
+            "answer_b": "stop",
+            "answer_c": "remove",
+            "answer_d": "rm",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "BASH"
+            }, {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 695,
+        "question": "Which command can be used to change file access permission bits?",
+        "answers": {
+            "answer_a": "chmod",
+            "answer_b": "chown",
+            "answer_c": "umask",
+            "answer_d": "chperm",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "BASH"
+            }, {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 681,
+        "question": "Who designed the Linux OS?",
+        "answers": {
+            "answer_a": "Linus Torvalds",
+            "answer_b": "Steve Jobs",
+            "answer_c": "Steve Wozniak",
+            "answer_d": "Steve Linus",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 21,
+        "question": "Which of the following is a text editor that can be used in command mode to edit files on a Linux system?",
+        "answers": {
+            "answer_a": "vi or vim",
+            "answer_b": "lsof",
+            "answer_c": "open",
+            "answer_d": "edit",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 678,
+        "question": "In which directory by default user home directories are created?",
+        "answers": {
+            "answer_a": "/home",
+            "answer_b": "/usr",
+            "answer_c": "/tmp",
+            "answer_d": "/etc",
+            "answer_e": "/user",
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "BASH"
+            }, {
+                "name": "Linux"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }
+]

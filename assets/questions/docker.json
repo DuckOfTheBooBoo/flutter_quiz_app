@@ -1,0 +1,196 @@
+[
+    {
+        "id": 792,
+        "question": "What is Hypervisor?",
+        "answers": {
+            "answer_a": "A hypervisor is a software that makes virtualization possible. It is also called Virtual Machine Monitor.",
+            "answer_b": "A hypervisor is a hardware that makes optimization possible. It is also called Virtual Machine Monitor.",
+            "answer_c": "A hypervisor is a software that makes optimization possible. It is also called Virtual Machine Monitor.",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 179,
+        "question": "Containers running on a single machine all share the same operating system kernel.",
+        "answers": {
+            "answer_a": "False",
+            "answer_b": "True",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 849,
+        "question": "How to remove the docker container with container id mentioned in the command.",
+        "answers": {
+            "answer_a": "$ docker rm -rf 9b6343d3b5a0",
+            "answer_b": "$ docker -rm rf 9b6343d3b5a0",
+            "answer_c": "$ docker rm 9b6343d3b5a0",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    },
+    {
+        "id": 805,
+        "question": "How to start a container?",
+        "answers": {
+            "answer_a": "$ docker push <container_id>",
+            "answer_b": "$ docker -->start <container_id>",
+            "answer_c": "$ docker start <container_id>",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 875,
+        "question": "If the Plesk server can't run Docker locally, you can still connect to a remote Docker server to manage containers. You'll need:",
+        "answers": {
+            "answer_a": "A virtuozzo 6 container",
+            "answer_b": "One separate ready-to-code environment",
+            "answer_c": "A Windows Server",
+            "answer_d": "The Plesk Docker extension",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_d"
+    }, {
+        "id": 883,
+        "question": "What is the difference between Docker image and layer.",
+        "answers": {
+            "answer_a": "Docker image is created with a series of read-only layers and layer in docker represents instructions on the Dockerfile of the image.",
+            "answer_b": "Docker image is created with a series of write-only layers and layer in docker represents instructions on the Dockerfile of the container.",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 855,
+        "question": "How to login into docker hub.",
+        "answers": {
+            "answer_a": "$ docker $login",
+            "answer_b": "$ docker --log",
+            "answer_c": "$ docker login",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 1026,
+        "question": "What is Docker Swarm mode?",
+        "answers": {
+            "answer_a": "A swarm is the name of the latest Docker release",
+            "answer_b": "A swarm is a group of machines that are running Docker and joined into a cluster",
+            "answer_c": "Docker swarm is also known as Docker Hub",
+            "answer_d": "Docker swarm is a tool for managing your CI/CD pipelines",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 853,
+        "question": "How to stop a docker container immediately?",
+        "answers": {
+            "answer_a": "$ docker terminate",
+            "answer_b": "$ docker kill",
+            "answer_c": "$ docker stop",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 1024,
+        "question": "What does the COPY instruction do in a Dockerfile?",
+        "answers": {
+            "answer_a": "COPY makes a copy of your Dockerfile",
+            "answer_b": "COPY adds files from your Docker client\u00e2\u20ac\u2122s current directory",
+            "answer_c": "COPY creates a copy of your running container",
+            "answer_d": "COPY creates a copy of your image",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Docker"
+            }
+        ],
+        "category": "Docker",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }
+]

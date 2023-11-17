@@ -1,0 +1,196 @@
+[
+    {
+        "id": 1035,
+        "question": "Which of the following commands will install Ansible on Ubuntu?",
+        "answers": {
+            "answer_a": "sudo apt install ansible",
+            "answer_b": "sudo apt install ansible-controller",
+            "answer_c": "sudo apt install ansible-master",
+            "answer_d": "sudo apt install ansible-server",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "DevOps"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 914,
+        "question": "The Kubernetes Network proxy runs on which node?",
+        "answers": {
+            "answer_a": "Master Node",
+            "answer_b": "Worker Node",
+            "answer_c": "All the nodes",
+            "answer_d": "None of the mentioned",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    },
+    {
+        "id": 899,
+        "question": "Kubernetes uses _____________ to connect to ouath 2 providers to offload the authentication to external services.",
+        "answers": {
+            "answer_a": "Webhook Token Authentication",
+            "answer_b": "Keystone Password",
+            "answer_c": "OpenID Connect Tokens",
+            "answer_d": "Authentication Proxy",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    },
+    {
+        "id": 903,
+        "question": "The command to create Kubernetes service is",
+        "answers": {
+            "answer_a": "kubectl expose",
+            "answer_b": "kubectl deploy",
+            "answer_c": "kubectl run",
+            "answer_d": "kubectl set service",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 1054,
+        "question": "Which command would you use to gather facts with Ansible?",
+        "answers": {
+            "answer_a": "ansible your_server -m gather",
+            "answer_b": "ansible your_server -m setup",
+            "answer_c": "ansible your_server -m info",
+            "answer_d": "ansible your_server -m fact",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "DevOps"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 964,
+        "question": "What is a kube-proxy used for?",
+        "answers": {
+            "answer_a": "To supplant an authentic webpage in a search engine's index and search page results",
+            "answer_b": "To load-balance traffic that is destined for services to the correct backend pods",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 1047,
+        "question": "Which Ansible command will you use to install Apache on Ubuntu host?",
+        "answers": {
+            "answer_a": "ansible your_host_name_here -b -m apt -a \"name=apache2 state=latest\"",
+            "answer_b": "ansible your_host_name_here -b -m yum -a \"name=apache2 state=latest\"",
+            "answer_c": "ansible your_host_name_here -b -m wget -a \"name=apache2 state=latest\"",
+            "answer_d": "ansible your_host_name_here apt install \"name=apache2 state=latest\"",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "DevOps"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 959,
+        "question": "What can you deploy on Kubernetes?",
+        "answers": {
+            "answer_a": "Containers",
+            "answer_b": "Virtual machines",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "Kubernetes"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 1049,
+        "question": "Which command will you use to run a playbook called install.yaml with Ansible?",
+        "answers": {
+            "answer_a": "ansible-playbook install.yml",
+            "answer_b": "ansible install.yml",
+            "answer_c": "ansible --playbook install.yml",
+            "answer_d": "ansible -p install.yml",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "DevOps"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 1043,
+        "question": "What are Ansible ad-hoc commands?",
+        "answers": {
+            "answer_a": "Ansible ad-hoc commands are commands which helps you execute simple tasks without the need of creating playbooks",
+            "answer_b": "Ansible ad-hoc commands are also known as Ansible playbooks",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "DevOps"
+            }
+        ],
+        "category": "DevOps",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }
+]
