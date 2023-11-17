@@ -40,26 +40,24 @@
         "correct_answer": "answer_c"
     },
     {
-        "id": 686,
-        "question": "Which command can be used to write onto other currently logged in user\u00e2\u20ac\u2122s console output terminal.",
+        "id": 45,
+        "question": "Which of the answers listed below refers to a package management system most often used on Debian and Debian-based Linux distributions?",
         "answers": {
-            "answer_a": "notify",
-            "answer_b": "alert",
-            "answer_c": "write",
-            "answer_d": "broadcast",
+            "answer_a": "kde",
+            "answer_b": "apt",
+            "answer_c": "yum",
+            "answer_d": "rpm",
             "answer_e": null,
             "answer_f": null
         },
         "tags": [
             {
-                "name": "BASH"
-            }, {
                 "name": "Linux"
             }
         ],
         "category": "Linux",
         "difficulty": "Easy",
-        "correct_answer": "answer_c"
+        "correct_answer": "answer_b"
     },
     {
         "id": 8,
