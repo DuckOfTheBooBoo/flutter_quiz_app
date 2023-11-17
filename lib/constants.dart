@@ -14,3 +14,6 @@ const TextStyle quizAnswerStyle = TextStyle(
   fontWeight: FontWeight.w700,
   fontSize: 18.0,
 );
+
+typedef AnswerMap = Map<String, String?>;
+typedef QuizResultMap = Map<int, AnswerMap>;
