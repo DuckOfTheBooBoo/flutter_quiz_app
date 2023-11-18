@@ -142,12 +142,10 @@ class _QuizCardState extends State<QuizCard>
         "selected_answer": _selectedAnswer
       };
     });
-    print('Hi');
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Center(

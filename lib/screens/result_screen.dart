@@ -21,10 +21,10 @@ class ResultScreen extends StatelessWidget {
     for (Question question in questions) {
       Map<String, dynamic> data = {
         "question": question,
-        ...quizResult[question.id]!
+        ...?quizResult[question.id]
       };
 
-      if (quizResult[question.id]!["selected_answer"] ==
+      if (quizResult[question.id]?["selected_answer"] ==
           question.correctAnswer) {
         correctAnswerCount++;
       }
@@ -34,105 +34,105 @@ class ResultScreen extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            // Upper segment
-            Container(
-              child: Column(
-                children: [
-                  // 1st upper segment (text)
-                  SizedBox(
-                    height: 15.0,
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        'You\'ve answered',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold
-                            // TODO: Change font family
-                            ),
-                      ),
-                      Text(
-                        '$correctAnswerCount/${questions.length}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 64,
-                            fontWeight: FontWeight.bold
-                            // TODO: Change font family
-                            ),
-                      ),
-                      Text(
-                        'correctly!',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold
-                            // TODO: Change font family
-                            ),
-                      ),
-                    ],
-                  ),
-                  // 2nd upper segment (buttons)
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 48.0),
-                    child: Row(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Upper segment
+              Container(
+                child: Column(
+                  children: [
+                    // 1st upper segment (text)
+                    SizedBox(
+                      height: 15.0,
+                    ),
+                    Column(
                       children: [
-                        // Try Again button
-                        Expanded(
-                          child: RoundedButton(
-                            text: 'Try Again',
-                            onPressed: () {},
-                          ),
+                        Text(
+                          'You\'ve answered',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold
+                              // TODO: Change font family
+                              ),
                         ),
-                        SizedBox(
-                          width: 15,
+                        Text(
+                          '$correctAnswerCount/${questions.length}',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 64,
+                              fontWeight: FontWeight.bold
+                              // TODO: Change font family
+                              ),
                         ),
-                        // Back to Home button
-                        Expanded(
-                          child: RoundedButton(
-                            text: 'Back to Home',
-                            onPressed: () => Navigator.pop(context),
-                          ),
+                        Text(
+                          'correctly!',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold
+                              // TODO: Change font family
+                              ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-            ),
-            // Lower segment
-            Container(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Header
-                  Padding(
-                    padding: EdgeInsets.only(left: 15.0),
-                    child: Text(
-                      'Review',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold
-                          // TODO: Change font family
+                    // 2nd upper segment (buttons)
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 48.0),
+                      child: Row(
+                        children: [
+                          // Try Again button
+                          Expanded(
+                            child: RoundedButton(
+                              text: 'Try Again',
+                              onPressed: () {},
+                            ),
                           ),
+                          SizedBox(
+                            width: 15,
+                          ),
+                          // Back to Home button
+                          Expanded(
+                            child: RoundedButton(
+                              text: 'Back to Home',
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  QuizBox(
-                    isCorrect: true,
-                  ),
-                  QuizBox(isCorrect: false),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+              // Lower segment
+              Container(
+                // Header
+                child: Padding(
+                  padding: EdgeInsets.only(left: 15.0),
+                  child: Text(
+                    'Review',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold
+                        // TODO: Change font family
+                        ),
+                  ),
+                ),
+              ),
+              ListView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: resultData.length,
+                itemBuilder: (context, index) =>
+                    QuizBox(data: resultData[index]),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -140,9 +140,9 @@ class ResultScreen extends StatelessWidget {
 }
 
 class QuizBox extends StatelessWidget {
-  final bool isCorrect;
+  final Map<String, dynamic> data;
 
-  const QuizBox({Key? key, required this.isCorrect}) : super(key: key);
+  const QuizBox({Key? key, required this.data}) : super(key: key);
 
   final int correctColor = 0xFF00FF0A;
   final int correctShadowColor = 0xFF007C04;
@@ -151,6 +151,10 @@ class QuizBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Question question = data["question"];
+    final String? selectedAnswer = data["selected_answer"];
+    final bool isCorrect = selectedAnswer == data["correct_answer"];
+
     return Padding(
       padding: const EdgeInsets.only(
         left: 28.0,
@@ -179,17 +183,36 @@ class QuizBox extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(
-              'Question 1',
-              style: quizHeaderStyle,
-            ),
-            Text(
-              'Lorem ipsum some question about linux or specific topic haiya chaw ni ma le',
-              style: quizQuestionStyle,
-            ),
-          ]),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Question 1',
+                style: quizHeaderStyle,
+              ),
+              Text(
+                question.question,
+                style: quizQuestionStyle,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: question.answers.keys
+                    .where((key) => question.answers[key] != null)
+                    .map(
+                      (key) => ListTile(
+                        title: Text(question.answers[key]),
+                        leading: Radio(
+                          value: key,
+                          groupValue: selectedAnswer,
+                          activeColor: Colors.black,
+                          onChanged: null,
+                        ),
+                      ),
+                    )
+                    .toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );
