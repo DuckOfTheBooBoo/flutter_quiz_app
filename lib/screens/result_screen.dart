@@ -4,12 +4,13 @@ import 'package:flutter_quiz_app/screens/quiz_screen.dart';
 import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../model/question.dart';
+import '../model/quiz_result.dart';
 import './main_screen.dart';
 
 class ResultArguments {
   final String quizName;
   final List<Question> questions;
-  final QuizResultMap quizResult;
+  final Map<int, QuizResult> quizResult;
 
   ResultArguments(this.quizName, this.questions, this.quizResult);
 }
@@ -26,20 +27,29 @@ class ResultScreen extends StatelessWidget {
     final args = ModalRoute.of(context)!.settings.arguments as ResultArguments;
     final String quizName = args.quizName;
     final List<Question> questions = args.questions;
-    final QuizResultMap quizResult = args.quizResult;
+    final Map<int, QuizResult> quizResult = args.quizResult;
 
-    for (Question question in questions) {
-      Map<String, dynamic> data = {
-        "question": question,
-        ...?quizResult[question.id]
-      };
+    // for (Question question in questions) {
+    //   Map<String, dynamic> data = {
+    //     "question": question,
+    //     ...?quizResult[question.id]
+    //   };
 
-      if (quizResult[question.id]?["selected_answer"] ==
-          question.correctAnswer) {
+    //   if (quizResult[question.id]?["selected_answer"] ==
+    //       question.correctAnswer) {
+    //     correctAnswerCount++;
+    //   }
+
+    //   resultData.add(data);
+    // }
+
+    for (int key in quizResult.keys) {
+      QuizResult currectQuizResult = quizResult[key]!;
+
+      if (currectQuizResult.selectedAnswer == currectQuizResult.correctAnswer) {
         correctAnswerCount++;
       }
-
-      resultData.add(data);
+      resultData.add(currectQuizResult);
     }
 
     return Scaffold(
@@ -165,7 +175,7 @@ class ResultScreen extends StatelessWidget {
 }
 
 class QuizBox extends StatelessWidget {
-  final Map<String, dynamic> data;
+  final QuizResult data;
   final int index;
 
   const QuizBox({
@@ -181,9 +191,9 @@ class QuizBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Question question = data["question"];
-    final String? selectedAnswer = data["selected_answer"];
-    final String correctAnswer = data["correct_answer"];
+    final Question question = data.question;
+    final String? selectedAnswer = data.selectedAnswer;
+    final String correctAnswer = data.correctAnswer;
     final bool isCorrect = selectedAnswer == correctAnswer;
 
     return Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/model/quiz_result.dart';
 import 'model/question.dart';
 
 const TextStyle quizHeaderStyle =
@@ -18,4 +19,4 @@ const TextStyle quizAnswerStyle = TextStyle(
 
 typedef AnswerMap = Map<String, String?>;
 typedef QuizResultMap = Map<int, AnswerMap>;
-typedef ResultData = List<Map<String, dynamic>>;
+typedef ResultData = List<QuizResult>;

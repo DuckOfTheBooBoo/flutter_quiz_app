@@ -4,6 +4,7 @@ import '../components/custom_appbar.dart';
 import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../model/question.dart';
+import '../model/quiz_result.dart';
 import '../screens/result_screen.dart';
 
 class QuizArguments {
@@ -24,7 +25,7 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   final PageController _pageController = PageController();
 
-  QuizResultMap quizResult = Map();
+  Map<int, QuizResult> quizResult = Map();
 
   void _previousPage() {
     _pageController.previousPage(
@@ -49,10 +50,11 @@ class _QuizScreenState extends State<QuizScreen> {
           if (snapshot.hasData) {
             // Create placeholder inside quizResult
             for (var question in snapshot.data!) {
-              quizResult[question.id] = {
-                "correct_answer": question.correctAnswer,
-                "selected_answer": null,
-              };
+              quizResult[question.id] = QuizResult(
+                question: question,
+                correctAnswer: question.correctAnswer,
+                selectedAnswer: null,
+              );
             }
 
             return Scaffold(
@@ -125,7 +127,8 @@ class QuizCard extends StatefulWidget {
   final int questionLength, index;
   final VoidCallback previousCard;
   final VoidCallback nextCard;
-  QuizResultMap quizResult;
+  // QuizResultMap quizResult;
+  Map<int, QuizResult> quizResult;
 
   QuizCard({
     Key? key,
@@ -151,10 +154,11 @@ class _QuizCardState extends State<QuizCard>
     setState(() {
       _selectedAnswer = value;
       int questionId = widget.question.id;
-      widget.quizResult[questionId] = {
-        "correct_answer": widget.question.correctAnswer,
-        "selected_answer": _selectedAnswer
-      };
+      // widget.quizResult[questionId] = {
+      //   "correct_answer": widget.question.correctAnswer,
+      //   "selected_answer": _selectedAnswer
+      // };
+      widget.quizResult[questionId]?.selectedAnswer = _selectedAnswer;
     });
   }
 
@@ -232,14 +236,13 @@ class _QuizCardState extends State<QuizCard>
                           Expanded(
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 3.0),
-                              child:
-                                  // Show next if quiz card is not the last, else show submit
-                                  // child: widget.index + 1 != widget.questionLength
-                                  //     ? RoundedButton(
-                                  //         text: 'Next',
-                                  //         onPressed: widget.nextCard,
-                                  //       ) :
-                                  RoundedButton(
+                              // Show next if quiz card is not the last, else show submit
+                              child: widget.index + 1 != widget.questionLength
+                                  ? RoundedButton(
+                                      text: 'Next',
+                                      onPressed: widget.nextCard,
+                                    )
+                                  : RoundedButton(
                                       text: 'Submit',
                                       onPressed: () => Navigator.pushNamed(
                                             context,
