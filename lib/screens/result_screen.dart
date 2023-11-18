@@ -110,6 +110,7 @@ class ResultScreen extends StatelessWidget {
               // Lower segment
               Container(
                 // Header
+                alignment: Alignment.topLeft,
                 child: Padding(
                   padding: EdgeInsets.only(left: 15.0),
                   child: Text(
@@ -128,8 +129,10 @@ class ResultScreen extends StatelessWidget {
                 physics: NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: resultData.length,
-                itemBuilder: (context, index) =>
-                    QuizBox(data: resultData[index]),
+                itemBuilder: (context, index) => QuizBox(
+                  data: resultData[index],
+                  index: index,
+                ),
               ),
             ],
           ),
@@ -141,8 +144,13 @@ class ResultScreen extends StatelessWidget {
 
 class QuizBox extends StatelessWidget {
   final Map<String, dynamic> data;
+  final int index;
 
-  const QuizBox({Key? key, required this.data}) : super(key: key);
+  const QuizBox({
+    Key? key,
+    required this.data,
+    required this.index,
+  }) : super(key: key);
 
   final int correctColor = 0xFF00FF0A;
   final int correctShadowColor = 0xFF007C04;
@@ -153,7 +161,8 @@ class QuizBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final Question question = data["question"];
     final String? selectedAnswer = data["selected_answer"];
-    final bool isCorrect = selectedAnswer == data["correct_answer"];
+    final String correctAnswer = data["correct_answer"];
+    final bool isCorrect = selectedAnswer == correctAnswer;
 
     return Padding(
       padding: const EdgeInsets.only(
@@ -187,25 +196,46 @@ class QuizBox extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Question 1',
+                'Question ${index + 1}',
                 style: quizHeaderStyle,
               ),
               Text(
                 question.question,
                 style: quizQuestionStyle,
               ),
+              const SizedBox(height: 10.0,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: question.answers.keys
                     .where((key) => question.answers[key] != null)
                     .map(
-                      (key) => ListTile(
-                        title: Text(question.answers[key]),
-                        leading: Radio(
-                          value: key,
-                          groupValue: selectedAnswer,
-                          activeColor: Colors.black,
-                          onChanged: null,
+                      (key) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 5.0),
+                        child: Container(
+                          decoration: ShapeDecoration(
+                            color: key == correctAnswer ? Color.fromARGB(184, 7, 245, 15) : Color.fromARGB(199, 251, 21, 5),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: ListTile(
+                            title: Text(
+                              question.answers[key],
+                              style: TextStyle(
+                                fontWeight: key == correctAnswer ? FontWeight.bold : FontWeight.normal,
+                                fontSize: key == correctAnswer ? 20 : 16
+                              ),
+                            ),
+                            leading: Radio(
+                              value: key,
+                              visualDensity: const VisualDensity(
+                                horizontal: VisualDensity.minimumDensity
+                              ),
+                              groupValue: selectedAnswer,
+                              activeColor: Colors.black,
+                              onChanged: null,
+                            ),
+                          ),
                         ),
                       ),
                     )
