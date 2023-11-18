@@ -5,7 +5,7 @@ import '../components/custom_appbar.dart';
 import 'result_screen.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class MainScreen extends StatelessWidget {
 }
 
 class MainContent extends StatelessWidget {
-  const MainContent({Key? key}) : super(key: key);
+  const MainContent({super.key});
 
   @override
   Widget build(BuildContext context) {

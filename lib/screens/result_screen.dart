@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:collection/collection.dart' show IterableZip;
 import 'package:flutter_quiz_app/screens/quiz_screen.dart';
 import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../model/question.dart';
 import '../model/quiz_result.dart';
-import './main_screen.dart';
 
 class ResultArguments {
   final String quizName;
@@ -20,7 +18,7 @@ class ResultScreen extends StatelessWidget {
   int correctAnswerCount = 0;
   ResultData resultData = [];
 
-  ResultScreen({Key? key}) : super(key: key);
+  ResultScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +26,6 @@ class ResultScreen extends StatelessWidget {
     final String quizName = args.quizName;
     final List<Question> questions = args.questions;
     final Map<int, QuizResult> quizResult = args.quizResult;
-
-    // for (Question question in questions) {
-    //   Map<String, dynamic> data = {
-    //     "question": question,
-    //     ...?quizResult[question.id]
-    //   };
-
-    //   if (quizResult[question.id]?["selected_answer"] ==
-    //       question.correctAnswer) {
-    //     correctAnswerCount++;
-    //   }
-
-    //   resultData.add(data);
-    // }
 
     for (int key in quizResult.keys) {
       QuizResult currectQuizResult = quizResult[key]!;
@@ -58,92 +42,90 @@ class ResultScreen extends StatelessWidget {
           child: Column(
             children: [
               // Upper segment
-              Container(
-                child: Column(
-                  children: [
-                    // 1st upper segment (text)
-                    SizedBox(
-                      height: 15.0,
-                    ),
-                    Column(
+              Column(
+                children: [
+                  // 1st upper segment (text)
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  Column(
+                    children: [
+                      const Text(
+                        'You\'ve answered',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold
+                            // TODO: Change font family
+                            ),
+                      ),
+                      Text(
+                        '$correctAnswerCount/${questions.length}',
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontSize: 64,
+                            fontWeight: FontWeight.bold
+                            // TODO: Change font family
+                            ),
+                      ),
+                      const Text(
+                        'correctly!',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold
+                            // TODO: Change font family
+                            ),
+                      ),
+                    ],
+                  ),
+                  // 2nd upper segment (buttons)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 48.0),
+                    child: Row(
                       children: [
-                        Text(
-                          'You\'ve answered',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold
-                              // TODO: Change font family
-                              ),
+                        // Try Again button
+                        Expanded(
+                          child: RoundedButton(
+                            text: 'Try Again',
+                            onPressed: () {
+                              Navigator.popUntil(
+                                context,
+                                ModalRoute.withName('/'),
+                              );
+                              Navigator.pushNamed(
+                                  context, QuizScreen.routeName,
+                                  arguments:
+                                      QuizArguments(quizName: quizName));
+                            },
+                          ),
                         ),
-                        Text(
-                          '$correctAnswerCount/${questions.length}',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 64,
-                              fontWeight: FontWeight.bold
-                              // TODO: Change font family
-                              ),
+                        const SizedBox(
+                          width: 15,
                         ),
-                        Text(
-                          'correctly!',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold
-                              // TODO: Change font family
-                              ),
+                        // Back to Home button
+                        Expanded(
+                          child: RoundedButton(
+                            text: 'Back to Home',
+                            onPressed: () => Navigator.popUntil(
+                              context,
+                              ModalRoute.withName('/'),
+                            ),
+                          ),
                         ),
                       ],
                     ),
-                    // 2nd upper segment (buttons)
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 48.0),
-                      child: Row(
-                        children: [
-                          // Try Again button
-                          Expanded(
-                            child: RoundedButton(
-                              text: 'Try Again',
-                              onPressed: () {
-                                Navigator.popUntil(
-                                  context,
-                                  ModalRoute.withName('/'),
-                                );
-                                Navigator.pushNamed(
-                                    context, QuizScreen.routeName,
-                                    arguments:
-                                        QuizArguments(quizName: quizName));
-                              },
-                            ),
-                          ),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          // Back to Home button
-                          Expanded(
-                            child: RoundedButton(
-                              text: 'Back to Home',
-                              onPressed: () => Navigator.popUntil(
-                                context,
-                                ModalRoute.withName('/'),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               // Lower segment
               Container(
                 // Header
                 alignment: Alignment.topLeft,
-                child: Padding(
+                child: const Padding(
                   padding: EdgeInsets.only(left: 15.0),
                   child: Text(
                     'Review',
@@ -158,7 +140,7 @@ class ResultScreen extends StatelessWidget {
                 ),
               ),
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: resultData.length,
                 itemBuilder: (context, index) => QuizBox(
@@ -179,10 +161,10 @@ class QuizBox extends StatelessWidget {
   final int index;
 
   const QuizBox({
-    Key? key,
+    super.key,
     required this.data,
     required this.index,
-  }) : super(key: key);
+  });
 
   final int correctColor = 0xFF00FF0A;
   final int correctShadowColor = 0xFF007C04;

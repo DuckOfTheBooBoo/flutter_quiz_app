@@ -16,7 +16,7 @@ class QuizArguments {
 class QuizScreen extends StatefulWidget {
   static const String routeName = '/quiz';
 
-  QuizScreen({Key? key}) : super(key: key);
+  const QuizScreen({super.key});
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -25,16 +25,16 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   final PageController _pageController = PageController();
 
-  Map<int, QuizResult> quizResult = Map();
+  Map<int, QuizResult> quizResult = {};
 
   void _previousPage() {
     _pageController.previousPage(
-        duration: Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
+        duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
   }
 
   void _nextPage() {
     _pageController.nextPage(
-        duration: Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
+        duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
   }
 
   void resetState() {
@@ -68,8 +68,8 @@ class _QuizScreenState extends State<QuizScreen> {
                     builder: (context) => BackdropFilter(
                       filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
                       child: AlertDialog(
-                        title: Text('You\'re leaving the quiz'),
-                        content: Text(
+                        title: const Text('You\'re leaving the quiz'),
+                        content: const Text(
                             'Are you sure you want to quit?\nAny answered questions will not be saved!'),
                         actions: [
                           RoundedButton(
@@ -131,7 +131,7 @@ class QuizCard extends StatefulWidget {
   Map<int, QuizResult> quizResult;
 
   QuizCard({
-    Key? key,
+    super.key,
     required this.quizName,
     required this.question,
     required this.questionLength,
@@ -140,7 +140,7 @@ class QuizCard extends StatefulWidget {
     required this.nextCard,
     required this.quizResult,
     required this.questions,
-  }) : super(key: key);
+  });
 
   @override
   _QuizCardState createState() => _QuizCardState();
@@ -224,7 +224,7 @@ class _QuizCardState extends State<QuizCard>
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 3.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 3.0),
                               child: widget.index > 0
                                   ? RoundedButton(
                                       text: 'Previous',
@@ -235,7 +235,7 @@ class _QuizCardState extends State<QuizCard>
                           ),
                           Expanded(
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 3.0),
+                              padding: const EdgeInsets.symmetric(horizontal: 3.0),
                               // Show next if quiz card is not the last, else show submit
                               child: widget.index + 1 != widget.questionLength
                                   ? RoundedButton(
@@ -261,7 +261,7 @@ class _QuizCardState extends State<QuizCard>
                 ),
                 Center(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15),
                     child: Text(
                       '${widget.index + 1}/${widget.questionLength}',
                       style: quizAnswerStyle,

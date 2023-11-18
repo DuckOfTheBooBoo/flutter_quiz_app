@@ -7,11 +7,14 @@ const TextStyle quizButtonTextStyle =
 class RoundedButton extends StatelessWidget {
   final String text;
   final Function() onPressed;
-  RoundedButton({
+  const RoundedButton({
     super.key,
     required this.text,
     required this.onPressed,
-  });
+  }) {
+    // TODO: implement RoundedButton
+    throw UnimplementedError();
+  }
 
   @override
   Widget build(BuildContext context) {
