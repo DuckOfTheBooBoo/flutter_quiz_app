@@ -79,24 +79,24 @@
         "difficulty": "Easy",
         "correct_answer": "answer_a"
     }, {
-        "id": 947,
-        "question": "Write a command to create deployment?",
+        "id": 705,
+        "question": "Deployment Controllers are part of",
         "answers": {
-            "answer_a": "kubectl --create f Deployment.yaml \u00e2\u20ac\u201crecord",
-            "answer_b": "kubectl create f Deployment.yaml \u00e2\u20ac\u201crecord",
-            "answer_c": "kubectl create \u00e2\u20ac\u201cf Deployment.yaml \u00e2\u20ac\u201crecord",
-            "answer_d": null,
+            "answer_a": "Master Controller Manager",
+            "answer_b": "kube-scheduler",
+            "answer_c": "etcd manager",
+            "answer_d": "API Controller Manager",
             "answer_e": null,
             "answer_f": null
         },
+        "correct_answer": "answer_a",
         "tags": [
             {
                 "name": "Kubernetes"
             }
         ],
-        "category": "DevOps",
-        "difficulty": "Easy",
-        "correct_answer": "answer_c"
+        "category": "Linux",
+        "difficulty": "Easy"
     }, {
         "id": 1016,
         "question": "Which of the following are Kubernetes Objects?",

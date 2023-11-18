@@ -174,23 +174,23 @@
         "difficulty": "Easy",
         "correct_answer": "answer_b"
     }, {
-        "id": 1024,
-        "question": "What does the COPY instruction do in a Dockerfile?",
+        "id": 864,
+        "question": "How to create a volume which docker container will use to store data.",
         "answers": {
-            "answer_a": "COPY makes a copy of your Dockerfile",
-            "answer_b": "COPY adds files from your Docker client\u00e2\u20ac\u2122s current directory",
-            "answer_c": "COPY creates a copy of your running container",
-            "answer_d": "COPY creates a copy of your image",
+            "answer_a": "$ docker --volume create",
+            "answer_b": "$ docker volume create",
+            "answer_c": "$ docker create volume",
+            "answer_d": null,
             "answer_e": null,
             "answer_f": null
         },
+        "correct_answer": "answer_a",
         "tags": [
             {
                 "name": "Docker"
             }
         ],
         "category": "Docker",
-        "difficulty": "Easy",
-        "correct_answer": "answer_b"
+        "difficulty": "Easy"
     }
 ]
