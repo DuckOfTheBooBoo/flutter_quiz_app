@@ -28,13 +28,10 @@ class MainContent extends StatelessWidget {
 
         return InkWell(
           onTap: () {
-            Navigator.push(
+            Navigator.pushNamed(
               context,
-              MaterialPageRoute(
-                builder: (context) => QuizScreen(
-                  quizName: quiz.name,
-                ),
-              ),
+              QuizScreen.routeName,
+              arguments: QuizArguments(quizName: quiz.name),
             );
           },
           child: Padding(

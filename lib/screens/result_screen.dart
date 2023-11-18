@@ -1,24 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart' show IterableZip;
+import 'package:flutter_quiz_app/screens/quiz_screen.dart';
 import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../model/question.dart';
 import './main_screen.dart';
 
-class ResultScreen extends StatelessWidget {
+class ResultArguments {
+  final String quizName;
   final List<Question> questions;
   final QuizResultMap quizResult;
+
+  ResultArguments(this.quizName, this.questions, this.quizResult);
+}
+
+class ResultScreen extends StatelessWidget {
+  static const String routeName = '/result';
   int correctAnswerCount = 0;
   ResultData resultData = [];
 
-  ResultScreen({
-    Key? key,
-    required this.questions,
-    required this.quizResult,
-  }) : super(key: key);
+  ResultScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as ResultArguments;
+    final String quizName = args.quizName;
+    final List<Question> questions = args.questions;
+    final QuizResultMap quizResult = args.quizResult;
+
     for (Question question in questions) {
       Map<String, dynamic> data = {
         "question": question,
@@ -89,7 +98,16 @@ class ResultScreen extends StatelessWidget {
                           Expanded(
                             child: RoundedButton(
                               text: 'Try Again',
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.popUntil(
+                                  context,
+                                  ModalRoute.withName('/'),
+                                );
+                                Navigator.pushNamed(
+                                    context, QuizScreen.routeName,
+                                    arguments:
+                                        QuizArguments(quizName: quizName));
+                              },
                             ),
                           ),
                           SizedBox(

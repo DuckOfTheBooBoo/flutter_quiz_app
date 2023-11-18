@@ -6,10 +6,16 @@ import '../constants.dart';
 import '../model/question.dart';
 import '../screens/result_screen.dart';
 
-class QuizScreen extends StatefulWidget {
+class QuizArguments {
   final String quizName;
 
-  QuizScreen({Key? key, required this.quizName}) : super(key: key);
+  QuizArguments({required this.quizName});
+}
+
+class QuizScreen extends StatefulWidget {
+  static const String routeName = '/quiz';
+
+  QuizScreen({Key? key}) : super(key: key);
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -30,10 +36,15 @@ class _QuizScreenState extends State<QuizScreen> {
         duration: Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
   }
 
+  void resetState() {
+    _pageController.jumpToPage(0);
+  }
+
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as QuizArguments;
     return FutureBuilder(
-        future: getQuestions(widget.quizName.toLowerCase()),
+        future: getQuestions(args.quizName.toLowerCase()),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             // Create placeholder inside quizResult
@@ -46,7 +57,7 @@ class _QuizScreenState extends State<QuizScreen> {
 
             return Scaffold(
               // TODO: fix back button icon not loaded
-              appBar: CustomAppBar(title: widget.quizName),
+              appBar: CustomAppBar(title: args.quizName),
               body: WillPopScope(
                 onWillPop: () async {
                   return await showDialog(
@@ -82,6 +93,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   controller: _pageController,
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) => QuizCard(
+                    quizName: args.quizName,
                     questions: snapshot.data!,
                     question: snapshot.data![index],
                     questionLength: snapshot.data!.length,
@@ -107,6 +119,7 @@ class _QuizScreenState extends State<QuizScreen> {
 }
 
 class QuizCard extends StatefulWidget {
+  final String quizName;
   final List<Question> questions;
   final Question question;
   final int questionLength, index;
@@ -116,6 +129,7 @@ class QuizCard extends StatefulWidget {
 
   QuizCard({
     Key? key,
+    required this.quizName,
     required this.question,
     required this.questionLength,
     required this.index,
@@ -218,26 +232,23 @@ class _QuizCardState extends State<QuizCard>
                           Expanded(
                             child: Padding(
                               padding: EdgeInsets.symmetric(horizontal: 3.0),
-                              // Show next if quiz card is not the last, else show submit
-                              child: widget.index + 1 != widget.questionLength
-                                  ? RoundedButton(
-                                      text: 'Next',
-                                      onPressed: widget.nextCard,
-                                    )
-                                  : RoundedButton(
+                              child:
+                                  // Show next if quiz card is not the last, else show submit
+                                  // child: widget.index + 1 != widget.questionLength
+                                  //     ? RoundedButton(
+                                  //         text: 'Next',
+                                  //         onPressed: widget.nextCard,
+                                  //       ) :
+                                  RoundedButton(
                                       text: 'Submit',
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => ResultScreen(
-                                              questions: widget.questions,
-                                              quizResult: widget.quizResult,
-                                            ),
-                                          ),
-                                        );
-                                      },
-                                    ),
+                                      onPressed: () => Navigator.pushNamed(
+                                            context,
+                                            ResultScreen.routeName,
+                                            arguments: ResultArguments(
+                                                widget.quizName,
+                                                widget.questions,
+                                                widget.quizResult),
+                                          )),
                             ),
                           ),
                         ],
