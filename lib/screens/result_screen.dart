@@ -3,6 +3,7 @@ import 'package:collection/collection.dart' show IterableZip;
 import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../model/question.dart';
+import './main_screen.dart';
 
 class ResultScreen extends StatelessWidget {
   final List<Question> questions;
@@ -98,7 +99,10 @@ class ResultScreen extends StatelessWidget {
                           Expanded(
                             child: RoundedButton(
                               text: 'Back to Home',
-                              onPressed: () => Navigator.pop(context),
+                              onPressed: () => Navigator.popUntil(
+                                context,
+                                ModalRoute.withName('/'),
+                              ),
                             ),
                           ),
                         ],
@@ -203,7 +207,9 @@ class QuizBox extends StatelessWidget {
                 question.question,
                 style: quizQuestionStyle,
               ),
-              const SizedBox(height: 10.0,),
+              const SizedBox(
+                height: 10.0,
+              ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: question.answers.keys
@@ -213,7 +219,9 @@ class QuizBox extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 5.0),
                         child: Container(
                           decoration: ShapeDecoration(
-                            color: key == correctAnswer ? Color.fromARGB(184, 7, 245, 15) : Color.fromARGB(199, 251, 21, 5),
+                            color: key == correctAnswer
+                                ? const Color.fromARGB(184, 7, 245, 15)
+                                : const Color.fromARGB(199, 251, 21, 5),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -222,15 +230,15 @@ class QuizBox extends StatelessWidget {
                             title: Text(
                               question.answers[key],
                               style: TextStyle(
-                                fontWeight: key == correctAnswer ? FontWeight.bold : FontWeight.normal,
-                                fontSize: key == correctAnswer ? 20 : 16
-                              ),
+                                  fontWeight: key == correctAnswer
+                                      ? FontWeight.bold
+                                      : FontWeight.normal,
+                                  fontSize: key == correctAnswer ? 20 : 16),
                             ),
                             leading: Radio(
                               value: key,
                               visualDensity: const VisualDensity(
-                                horizontal: VisualDensity.minimumDensity
-                              ),
+                                  horizontal: VisualDensity.minimumDensity),
                               groupValue: selectedAnswer,
                               activeColor: Colors.black,
                               onChanged: null,
