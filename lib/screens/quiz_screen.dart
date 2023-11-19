@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import '../components/custom_appbar.dart';
 import '../components/rounded_button.dart';
@@ -29,12 +30,14 @@ class _QuizScreenState extends State<QuizScreen> {
 
   void _previousPage() {
     _pageController.previousPage(
-        duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.fastOutSlowIn);
   }
 
   void _nextPage() {
     _pageController.nextPage(
-        duration: const Duration(milliseconds: 500), curve: Curves.fastOutSlowIn);
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.fastOutSlowIn);
   }
 
   void resetState() {
@@ -47,7 +50,13 @@ class _QuizScreenState extends State<QuizScreen> {
     return FutureBuilder(
         future: getQuestions(args.quizName.toLowerCase()),
         builder: (context, snapshot) {
+
           if (snapshot.hasData) {
+            List<Question> questions = snapshot.data!;
+
+            // Shuffle question
+            questions.shuffle();
+            
             // Create placeholder inside quizResult
             for (var question in snapshot.data!) {
               quizResult[question.id] = QuizResult(
@@ -96,7 +105,7 @@ class _QuizScreenState extends State<QuizScreen> {
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) => QuizCard(
                     quizName: args.quizName,
-                    questions: snapshot.data!,
+                    questions: questions,
                     question: snapshot.data![index],
                     questionLength: snapshot.data!.length,
                     index: index,
@@ -224,7 +233,8 @@ class _QuizCardState extends State<QuizCard>
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 3.0),
                               child: widget.index > 0
                                   ? RoundedButton(
                                       text: 'Previous',
@@ -235,7 +245,8 @@ class _QuizCardState extends State<QuizCard>
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 3.0),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 3.0),
                               // Show next if quiz card is not the last, else show submit
                               child: widget.index + 1 != widget.questionLength
                                   ? RoundedButton(
