@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 const TextStyle quizButtonTextStyle =
     TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 13.0);
 
@@ -11,10 +10,7 @@ class RoundedButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-  }) {
-    // TODO: implement RoundedButton
-    throw UnimplementedError();
-  }
+  });
 
   @override
   Widget build(BuildContext context) {
