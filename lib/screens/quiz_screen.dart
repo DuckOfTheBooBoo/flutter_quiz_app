@@ -50,13 +50,12 @@ class _QuizScreenState extends State<QuizScreen> {
     return FutureBuilder(
         future: getQuestions(args.quizName.toLowerCase()),
         builder: (context, snapshot) {
-
           if (snapshot.hasData) {
             List<Question> questions = snapshot.data!;
 
             // Shuffle question
             questions.shuffle();
-            
+
             // Create placeholder inside quizResult
             for (var question in snapshot.data!) {
               quizResult[question.id] = QuizResult(
@@ -126,6 +125,12 @@ class _QuizScreenState extends State<QuizScreen> {
             return const CircularProgressIndicator();
           }
         });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
   }
 }
 
