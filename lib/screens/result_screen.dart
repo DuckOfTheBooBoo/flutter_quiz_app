@@ -38,117 +38,126 @@ class ResultScreen extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // Upper segment
-              Column(
-                children: [
-                  // 1st upper segment (text)
-                  const SizedBox(
-                    height: 15.0,
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        'You\'ve answered',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold
-                            // TODO: Change font family
-                            ),
-                      ),
-                      Text(
-                        '$correctAnswerCount/${questions.length}',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 64,
-                            fontWeight: FontWeight.bold
-                            // TODO: Change font family
-                            ),
-                      ),
-                      const Text(
-                        'correctly!',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold
-                            // TODO: Change font family
-                            ),
-                      ),
-                    ],
-                  ),
-                  // 2nd upper segment (buttons)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 48.0),
-                    child: Row(
+        child: WillPopScope(
+          onWillPop: () async {
+            Navigator.popUntil(
+              context,
+              ModalRoute.withName('/'),
+            );
+            return false;
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                // Upper segment
+                Column(
+                  children: [
+                    // 1st upper segment (text)
+                    const SizedBox(
+                      height: 15.0,
+                    ),
+                    Column(
                       children: [
-                        // Try Again button
-                        Expanded(
-                          child: RoundedButton(
-                            text: 'Try Again',
-                            onPressed: () {
-                              Navigator.popUntil(
-                                context,
-                                ModalRoute.withName('/'),
-                              );
-                              Navigator.pushNamed(
-                                  context, QuizScreen.routeName,
-                                  arguments:
-                                      QuizArguments(quizName: quizName));
-                            },
-                          ),
+                        const Text(
+                          'You\'ve answered',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold
+                              // TODO: Change font family
+                              ),
                         ),
-                        const SizedBox(
-                          width: 15,
+                        Text(
+                          '$correctAnswerCount/${questions.length}',
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 64,
+                              fontWeight: FontWeight.bold
+                              // TODO: Change font family
+                              ),
                         ),
-                        // Back to Home button
-                        Expanded(
-                          child: RoundedButton(
-                            text: 'Back to Home',
-                            onPressed: () => Navigator.popUntil(
-                              context,
-                              ModalRoute.withName('/'),
-                            ),
-                          ),
+                        const Text(
+                          'correctly!',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold
+                              // TODO: Change font family
+                              ),
                         ),
                       ],
                     ),
-                  ),
-                ],
-              ),
-              // Lower segment
-              Container(
-                // Header
-                alignment: Alignment.topLeft,
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    'Review',
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold
-                        // TODO: Change font family
-                        ),
+                    // 2nd upper segment (buttons)
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 48.0),
+                      child: Row(
+                        children: [
+                          // Try Again button
+                          Expanded(
+                            child: RoundedButton(
+                              text: 'Try Again',
+                              onPressed: () {
+                                Navigator.popUntil(
+                                  context,
+                                  ModalRoute.withName('/'),
+                                );
+                                Navigator.pushNamed(
+                                    context, QuizScreen.routeName,
+                                    arguments:
+                                        QuizArguments(quizName: quizName));
+                              },
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          // Back to Home button
+                          Expanded(
+                            child: RoundedButton(
+                              text: 'Back to Home',
+                              onPressed: () => Navigator.popUntil(
+                                context,
+                                ModalRoute.withName('/'),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                // Lower segment
+                Container(
+                  // Header
+                  alignment: Alignment.topLeft,
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 15.0),
+                    child: Text(
+                      'Review',
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold
+                          // TODO: Change font family
+                          ),
+                    ),
                   ),
                 ),
-              ),
-              ListView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemCount: resultData.length,
-                itemBuilder: (context, index) => QuizBox(
-                  data: resultData[index],
-                  index: index,
+                ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: resultData.length,
+                  itemBuilder: (context, index) => QuizBox(
+                    data: resultData[index],
+                    index: index,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
