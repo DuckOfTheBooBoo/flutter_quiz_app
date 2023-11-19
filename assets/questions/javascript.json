@@ -1,0 +1,196 @@
+[
+    {
+        "id": 973,
+        "question": "Inside which HTML element do we put the JavaScript?",
+        "answers": {
+            "answer_a": "<javascript>",
+            "answer_b": "<script>",
+            "answer_c": "<js>",
+            "answer_d": "<scripting>",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 976,
+        "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?",
+        "answers": {
+            "answer_a": "<script name=\"xxx.js\">",
+            "answer_b": "<script src=\"xxx.js\">",
+            "answer_c": "<script href=\"xxx.js\">",
+            "answer_d": "<script declare=\"xxx.js\">",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 991,
+        "question": "JavaScript is the same as Java.",
+        "answers": {
+            "answer_a": "False",
+            "answer_b": "True",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 995,
+        "question": "Which operator is used to assign a value to a variable?",
+        "answers": {
+            "answer_a": "x",
+            "answer_b": "-",
+            "answer_c": "=",
+            "answer_d": "*",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 981,
+        "question": "How to write an IF statement in JavaScript?",
+        "answers": {
+            "answer_a": "if i = 5 then",
+            "answer_b": "if i = 5",
+            "answer_c": "if i == 5 then",
+            "answer_d": "if (i == 5)",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_d"
+    }, {
+        "id": 994,
+        "question": "How do you declare a JavaScript variable?",
+        "answers": {
+            "answer_a": "v carName;",
+            "answer_b": "variable carName;",
+            "answer_c": "var carName;",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 989,
+        "question": "How do you find the number with the highest value of x and y?",
+        "answers": {
+            "answer_a": "ceil(x, y)",
+            "answer_b": "Math.ceil(x, y)",
+            "answer_c": "Math.max(x, y)",
+            "answer_d": "top(x, y)",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 996,
+        "question": "What will the following code return: Boolean(10 > 9)",
+        "answers": {
+            "answer_a": "true",
+            "answer_b": "NaN",
+            "answer_c": "false",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 985,
+        "question": "How can you add a comment in a JavaScript?",
+        "answers": {
+            "answer_a": "//This is a comment",
+            "answer_b": "'This is a comment",
+            "answer_c": "<!--This is a comment-->",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 982,
+        "question": "How to write an IF statement for executing some code if \"i\" is NOT equal to 5?",
+        "answers": {
+            "answer_a": "if (i != 5)",
+            "answer_b": "if (i <> 5)",
+            "answer_c": "if i =! 5 then",
+            "answer_d": "if i <> 5",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "JavaScript"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }
+]

@@ -1,0 +1,196 @@
+[
+    {
+        "id": 312,
+        "question": "What is the name of the first page you encounter after logging into your web page?",
+        "answers": {
+            "answer_a": "Dashboard",
+            "answer_b": "Security question page",
+            "answer_c": "WP upgrade option",
+            "answer_d": "WPAdmin",
+            "answer_e": "Clientarea",
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 314,
+        "question": "What websites can you build with WordPress?",
+        "answers": {
+            "answer_a": "Shop",
+            "answer_b": "Blog",
+            "answer_c": "Betting website",
+            "answer_d": "All of the mentioned",
+            "answer_e": "A Learning platform",
+            "answer_f": "News website"
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_d"
+    },
+    {
+        "id": 291,
+        "question": "Which relational database does WordPress use?",
+        "answers": {
+            "answer_a": "Oracle",
+            "answer_b": "MySQL",
+            "answer_c": "PostgresSQL",
+            "answer_d": "MSSQL SERVER",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 309,
+        "question": "How can you restore the WordPress core files?",
+        "answers": {
+            "answer_a": "The core files can be downloaded back from wordpress.org site.",
+            "answer_b": "The core files can be downloaded back from Database.",
+            "answer_c": "The core files can be downloaded back from your local machine as long as you have a backup",
+            "answer_d": "The core files can be fetched via your dashboard",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 255,
+        "question": "What is a Child Theme?",
+        "answers": {
+            "answer_a": "The child theme is an extension of the sub-child theme",
+            "answer_b": "The child theme is an extension of the parent theme",
+            "answer_c": "The child theme is an extension of the super parent theme",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 297,
+        "question": "In which programming language WordPress is written?",
+        "answers": {
+            "answer_a": "Java",
+            "answer_b": "Node",
+            "answer_c": "PHP",
+            "answer_d": "Javascript",
+            "answer_e": "VueJS",
+            "answer_f": "Python"
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 303,
+        "question": "What is moderate comment in WordPress.",
+        "answers": {
+            "answer_a": "Comments by admin on a post are not published directly unless the visitors provides it. It is called moderation.",
+            "answer_b": "Comments by admin on a post are not published directly unless the clients provides it. It is called moderation.",
+            "answer_c": "Comments by visitors on a post are not published directly unless the admin provides it. It is called moderation.",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 324,
+        "question": "You have lost access to your admin area and can't recover it with email. What do you do?",
+        "answers": {
+            "answer_a": "Delete your themes folder.",
+            "answer_b": "Reinstall Wordpress.",
+            "answer_c": "Install a plugin to recover your password.",
+            "answer_d": "Add a new user with admin privileges in MySQL.",
+            "answer_e": "Reset the password of your user through MySQL.",
+            "answer_f": "Register a new user and set it as an administrator via your panel."
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_d"
+    }, {
+        "id": 340,
+        "question": "Who developed WordPress?",
+        "answers": {
+            "answer_a": "WordPress was co-founded by Allen Mullenweg and Luke Little on the 27th of June 2003.",
+            "answer_b": "WordPress was co-founded by Matt Mullenweg and Mike Little on the 27th of May 2003.",
+            "answer_c": "WordPress was co-founded by Andrew Mclean and Mike Hathaway on the 24th of May 2003.",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 184,
+        "question": "What is Wordpress?",
+        "answers": {
+            "answer_a": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+            "answer_b": "Wordpress is a social network just like Facebook and Twitter.",
+            "answer_c": "Wordpress is a HTML page builder you can use to create your static HTML pages.",
+            "answer_d": "Wordpress is a paid software you can use to create a beautiful website, blog, or app.",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "correct_answer": "answer_a",
+        "tags": [
+            {
+                "name": "WordPress"
+            }
+        ],
+        "category": "CMS",
+        "difficulty": "Easy"
+    }
+]

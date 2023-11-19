@@ -7,10 +7,14 @@ Question questionsFromJson(String str) => Question.fromJson(json.decode(str));
 Map<String, String> jsonAssetMap = {
   "devops": "assets/questions/devops.json",
   "docker": "assets/questions/docker.json",
+  "html": "assets/questions/html.json",
+  "javascript": "assets/questions/javascript.json",
   "kubernetes": "assets/questions/kubernetes.json",
+  "laravel": "assets/questions/laravel.json",
   "linux": "assets/questions/linux.json",
-  "programming": "assets/questions/programming.json",
-  "sql": "assets/questions/sql.json"
+  "php": "assets/questions/php.json",
+  "sql": "assets/questions/sql.json",
+  "wordpress": "assets/questions/wordpress.json",
 };
 
 class InvalidQuestionKey implements Exception {

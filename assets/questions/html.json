@@ -1,0 +1,196 @@
+[
+    {
+        "id": 134,
+        "question": "Inline elements are normally displayed without starting a new line",
+        "answers": {
+            "answer_a": "True",
+            "answer_b": "False",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 533,
+        "question": "In HTML document the tags",
+        "answers": {
+            "answer_a": "Should be written in upper case",
+            "answer_b": "can be written in both uppercase or lowercase",
+            "answer_c": "should be written in propercase",
+            "answer_d": "should be written in lower case",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 162,
+        "question": "Which HTML element is used to specify a header for a document or section?",
+        "answers": {
+            "answer_a": "<top>",
+            "answer_b": "<header>",
+            "answer_c": "<head>",
+            "answer_d": "<section>",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "Linux",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    },
+    {
+        "id": 505,
+        "question": "Which of the following is an attribute of the <table> tag?",
+        "answers": {
+            "answer_a": "SRC",
+            "answer_b": "BOLD",
+            "answer_c": "CELLPADDING",
+            "answer_d": "LINK",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 497,
+        "question": "Which of the following attribute is used to group elements?",
+        "answers": {
+            "answer_a": "item",
+            "answer_b": "itemgroup",
+            "answer_c": "itemcheck",
+            "answer_d": "itemprop",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 146,
+        "question": "Which HTML element defines the title of a document?",
+        "answers": {
+            "answer_a": "<title>",
+            "answer_b": "<head>",
+            "answer_c": "<meta>",
+            "answer_d": "<start>",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 443,
+        "question": "What is the HTML Tag for the largest heading",
+        "answers": {
+            "answer_a": "<h6>",
+            "answer_b": "<head>",
+            "answer_c": "<h1>",
+            "answer_d": "<heading>",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 488,
+        "question": "HTML Uses",
+        "answers": {
+            "answer_a": "Fixed Tags Defined By The Language",
+            "answer_b": "Pre-specified Tags",
+            "answer_c": "Tags Only For Linking",
+            "answer_d": "User Defined Tags",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 149,
+        "question": "Which HTML element is used to specify a footer for a document or section?",
+        "answers": {
+            "answer_a": "<footer>",
+            "answer_b": "<section>",
+            "answer_c": "<bottom>",
+            "answer_d": "<down>",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 531,
+        "question": "To create a blank line in your web page",
+        "answers": {
+            "answer_a": "press Enter two times",
+            "answer_b": ". insert <BLINE>",
+            "answer_c": "insert <BR> tag",
+            "answer_d": "press Shift + Enter",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "correct_answer": "answer_a",
+        "tags": [
+            {
+                "name": "HTML"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy"
+    }
+]

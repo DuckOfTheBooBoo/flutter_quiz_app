@@ -1,0 +1,196 @@
+[
+    {
+        "id": 112,
+        "question": "What is the difference between GET and POST method?",
+        "answers": {
+            "answer_a": "GET displays the form values entered in the URL of the address bar where as POST does not.",
+            "answer_b": "POST displays the form values entered in the URL of the address bar where as GET does not.",
+            "answer_c": "There is no difference",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 98,
+        "question": "Can echo in PHP accept more than 1 parameter?",
+        "answers": {
+            "answer_a": "True",
+            "answer_b": "False",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 62,
+        "question": "What is the correct way to end a PHP statement?",
+        "answers": {
+            "answer_a": ";",
+            "answer_b": "New line",
+            "answer_c": "</php>.",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    },
+    {
+        "id": 756,
+        "question": "Which of the following type of variables have only two possible values either true or false?",
+        "answers": {
+            "answer_a": "Integers",
+            "answer_b": "Doubles",
+            "answer_c": "Booleans",
+            "answer_d": "Strings",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_c"
+    }, {
+        "id": 605,
+        "question": "How can you pass a variable by reference?",
+        "answers": {
+            "answer_a": "$var1 = &$var2",
+            "answer_b": "$var1 == &$var2",
+            "answer_c": "$var1 === &$var2",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }, {
+        "id": 616,
+        "question": "How do we check if a given variable is empty?",
+        "answers": {
+            "answer_a": "With the null() function.",
+            "answer_b": "With the empty() function.",
+            "answer_c": "With the isitnull() function.",
+            "answer_d": "With the isitempty() function.",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 760,
+        "question": "Which of the following function is used to read the content of a file?",
+        "answers": {
+            "answer_a": "fopen()",
+            "answer_b": "fread()",
+            "answer_c": "filesize()",
+            "answer_d": "file_exist()",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 59,
+        "question": "PHP server scripts are surrounded by delimiters, which?",
+        "answers": {
+            "answer_a": "<&>...</&>",
+            "answer_b": "<?php...?>",
+            "answer_c": "<?php>...</?>",
+            "answer_d": "<script>...</script>",
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 599,
+        "question": "How are objects in PHP passed by?",
+        "answers": {
+            "answer_a": "Objects are passed by value.",
+            "answer_b": "Objects are passed by reference.",
+            "answer_c": "Neither of the mentioned",
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_b"
+    }, {
+        "id": 604,
+        "question": "Will a comparison of an integer 12 and a string \"13\" work in PHP?",
+        "answers": {
+            "answer_a": "True",
+            "answer_b": "False",
+            "answer_c": null,
+            "answer_d": null,
+            "answer_e": null,
+            "answer_f": null
+        },
+        "tags": [
+            {
+                "name": "PHP"
+            }
+        ],
+        "category": "Code",
+        "difficulty": "Easy",
+        "correct_answer": "answer_a"
+    }
+]
