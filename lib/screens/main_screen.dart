@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
 import '../model/quiz.dart';
 import 'quiz_screen.dart';
 import '../components/custom_appbar.dart';
@@ -28,11 +30,24 @@ class MainContent extends StatelessWidget {
 
         return InkWell(
           onTap: () {
-            Navigator.pushNamed(
-              context,
-              QuizScreen.routeName,
-              arguments: QuizArguments(quizName: quiz.name),
-            );
+            String answersJson = SharedPrefs.getString("answers")!;
+            Map<String, dynamic> answersMap = jsonDecode(answersJson);
+
+            Map<dynamic, dynamic> quizMap = answersMap[quiz.name]!;
+
+            if (quizMap.isNotEmpty) {
+              Navigator.pushNamed(
+                context,
+                ResultScreen.routeName,
+                arguments: ResultArguments(quiz.name)
+              );
+            } else {
+              Navigator.pushNamed(
+                context,
+                QuizScreen.routeName,
+                arguments: QuizArguments(quizName: quiz.name),
+              );
+            }
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
