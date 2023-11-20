@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_quiz_app/model/question.dart' show Question;
 
 class QuizResult {
@@ -10,4 +12,9 @@ class QuizResult {
     required this.selectedAnswer,
   });
 
+  Map<String, dynamic> toMap() => {
+        "question": question.toMap(),
+        "correctAnswer": correctAnswer,
+        "selectedAnswer": selectedAnswer,
+      };
 }

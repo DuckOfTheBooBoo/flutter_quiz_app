@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-Question questionsFromJson(String str) => Question.fromJson(json.decode(str));
+Question questionsFromJson(String str) => Question.fromMap(json.decode(str));
 
 Map<String, String> jsonAssetMap = {
   "devops": "assets/questions/devops.json",
@@ -34,11 +34,11 @@ Future<List<Question>> getQuestions(String quizName) async {
 
   String assetPath = jsonAssetMap[quizName]!;
   var questionsMap = await parseFromJsonAsset(assetPath);
-  return questionsMap.map((question) => Question.fromJson(question)).toList();
+  return questionsMap.map((question) => Question.fromMap(question)).toList();
 }
 
 class Question {
-  int id;
+  String id;
   String question;
   Map<String, dynamic> answers;
   List<Tag> tags;
@@ -56,21 +56,21 @@ class Question {
     required this.correctAnswer,
   });
 
-  factory Question.fromJson(Map<String, dynamic> json) => Question(
-        id: json["id"],
+  factory Question.fromMap(Map<String, dynamic> json) => Question(
+        id: json["id"].toString(),
         question: json["question"],
         answers: json["answers"],
-        tags: List<Tag>.from(json["tags"].map((x) => Tag.fromJson(x))),
+        tags: List<Tag>.from(json["tags"].map((x) => Tag.fromMap(x))),
         category: json["category"],
         difficulty: json["difficulty"],
         correctAnswer: json["correct_answer"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "id": id,
         "question": question,
         "answers": answers,
-        "tags": List<dynamic>.from(tags.map((x) => x.toJson())),
+        "tags": List<dynamic>.from(tags.map((x) => x.toMap())),
         "category": category,
         "difficulty": difficulty,
         "correct_answer": correctAnswer,
@@ -84,11 +84,11 @@ class Tag {
     required this.name,
   });
 
-  factory Tag.fromJson(Map<String, dynamic> json) => Tag(
+  factory Tag.fromMap(Map<String, dynamic> json) => Tag(
         name: json["name"],
       );
 
-  Map<String, dynamic> toJson() => {
+  Map<String, dynamic> toMap() => {
         "name": name,
       };
 }
