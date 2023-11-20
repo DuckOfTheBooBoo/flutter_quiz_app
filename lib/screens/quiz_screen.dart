@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:ui';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
 import '../components/custom_appbar.dart';
 import '../components/rounded_button.dart';
 import '../constants.dart';
@@ -26,7 +28,7 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   final PageController _pageController = PageController();
 
-  Map<int, QuizResult> quizResult = {};
+  Map<String, QuizResult> quizResult = {};
 
   void _previousPage() {
     _pageController.previousPage(
@@ -141,8 +143,7 @@ class QuizCard extends StatefulWidget {
   final int questionLength, index;
   final VoidCallback previousCard;
   final VoidCallback nextCard;
-  // QuizResultMap quizResult;
-  Map<int, QuizResult> quizResult;
+  Map<String, QuizResult> quizResult;
 
   QuizCard({
     super.key,
@@ -167,7 +168,7 @@ class _QuizCardState extends State<QuizCard>
   void _handleAnswerChange(String? value) {
     setState(() {
       _selectedAnswer = value;
-      int questionId = widget.question.id;
+      String questionId = widget.question.id;
       // widget.quizResult[questionId] = {
       //   "correct_answer": widget.question.correctAnswer,
       //   "selected_answer": _selectedAnswer
@@ -260,14 +261,51 @@ class _QuizCardState extends State<QuizCard>
                                     )
                                   : RoundedButton(
                                       text: 'Submit',
-                                      onPressed: () => Navigator.pushNamed(
+                                      onPressed: () {
+                                        // Create QuizNameMap e.g.
+                                        //"Linux": {
+                                        //    int: quizResult.toMap()
+                                        // }
+                                        QuizNameMap quizNameMap = {};
+
+                                        QuizAnswerMap answerMap = widget
+                                            .quizResult
+                                            .map((questionId, quizResult) =>
+                                                MapEntry(questionId.toString(),
+                                                    quizResult.toMap()));
+
+                                        String answersJson =
+                                            SharedPrefs.getString("answers")!;
+
+                                        Map<String, dynamic> answersMap =
+                                            jsonDecode(answersJson);
+
+                                        answersMap[widget.quizName] =
+                                            answerMap;
+
+                                        // Encode to JSON String
+                                        answersJson = jsonEncode(answersMap);
+
+                                        SharedPrefs.setString(
+                                                "answers", answersJson)
+                                            .then((_) {
+                                          // Navigator.pushNamed(
+                                          //   context,
+                                          //   ResultScreen.routeName,
+                                          //   arguments: ResultArguments(
+                                          //       widget.quizName,
+                                          //       widget.questions,
+                                          //       widget.quizResult),
+                                          // );
+                                          Navigator.pushNamed(
                                             context,
                                             ResultScreen.routeName,
                                             arguments: ResultArguments(
-                                                widget.quizName,
-                                                widget.questions,
-                                                widget.quizResult),
-                                          )),
+                                                widget.quizName),
+                                          );
+                                        });
+                                      },
+                                    ),
                             ),
                           ),
                         ],
