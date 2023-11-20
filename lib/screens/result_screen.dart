@@ -31,7 +31,6 @@ class ResultScreen extends StatelessWidget {
     // Get quiz results from shared preferences
     final String quizResultsJson = SharedPrefs.getString("answers")!;
     var quizNameMap = jsonDecode(quizResultsJson);
-    print('');
     final Map<String, dynamic> quizResultsMap = quizNameMap[quizName]!;
     final List<Question> questions = [];
     final Map<String, QuizResult> quizResults = {};
@@ -137,15 +136,28 @@ class ResultScreen extends StatelessWidget {
                           Expanded(
                             child: RoundedButton(
                               text: 'Try Again',
-                              onPressed: () {
-                                Navigator.popUntil(
-                                  context,
-                                  ModalRoute.withName('/'),
-                                );
-                                Navigator.pushNamed(
-                                    context, QuizScreen.routeName,
+                              onPressed: () async {
+                                String answersJson =
+                                    SharedPrefs.getString("answers")!;
+                                Map<String, dynamic> answersMap =
+                                    jsonDecode(answersJson);
+
+                                answersMap[quizName] = {};
+
+                                SharedPrefs.setString(
+                                        "answers", jsonEncode(answersMap))
+                                    .then((_) {
+                                  Navigator.popUntil(
+                                    context,
+                                    ModalRoute.withName('/'),
+                                  );
+                                  Navigator.pushNamed(
+                                    context,
+                                    QuizScreen.routeName,
                                     arguments:
-                                        QuizArguments(quizName: quizName));
+                                        QuizArguments(quizName: quizName),
+                                  );
+                                });
                               },
                             ),
                           ),
@@ -162,12 +174,12 @@ class ResultScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          Expanded(
-                              child: RoundedButton(
-                                  text: 'Get SharedPrefs',
-                                  onPressed: () {
-                                    _showDialog(context);
-                                  })),
+                          // Expanded(
+                          //     child: RoundedButton(
+                          //         text: 'Get SharedPrefs',
+                          //         onPressed: () {
+                          //           _showDialog(context);
+                          //         })),
                         ],
                       ),
                     ),
