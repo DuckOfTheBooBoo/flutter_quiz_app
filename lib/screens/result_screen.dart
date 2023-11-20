@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/screens/quiz_screen.dart';
+import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
 import '../components/rounded_button.dart';
 import '../constants.dart';
 import '../model/question.dart';
@@ -7,10 +9,11 @@ import '../model/quiz_result.dart';
 
 class ResultArguments {
   final String quizName;
-  final List<Question> questions;
-  final Map<int, QuizResult> quizResult;
+  // final List<Question> questions;
+  // final Map<String, QuizResult> quizResults;
 
-  ResultArguments(this.quizName, this.questions, this.quizResult);
+  // ResultArguments(this.quizName, this.questions, this.quizResults);
+  ResultArguments(this.quizName);
 }
 
 class ResultScreen extends StatelessWidget {
@@ -24,16 +27,51 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as ResultArguments;
     final String quizName = args.quizName;
-    final List<Question> questions = args.questions;
-    final Map<int, QuizResult> quizResult = args.quizResult;
 
-    for (int key in quizResult.keys) {
-      QuizResult currectQuizResult = quizResult[key]!;
+    // Get quiz results from shared preferences
+    final String quizResultsJson = SharedPrefs.getString("answers")!;
+    var quizNameMap = jsonDecode(quizResultsJson);
+    print('');
+    final Map<String, dynamic> quizResultsMap = quizNameMap[quizName]!;
+    final List<Question> questions = [];
+    final Map<String, QuizResult> quizResults = {};
 
-      if (currectQuizResult.selectedAnswer == currectQuizResult.correctAnswer) {
+    for (String key in quizResultsMap.keys) {
+      QuizResult quizResult = QuizResult.fromMap(quizResultsMap[key]!);
+      quizResults[key] = quizResult;
+      questions.add(quizResult.question);
+
+      // Calculate amount of correct and wrong
+      if (quizResult.selectedAnswer == quizResult.correctAnswer) {
         correctAnswerCount++;
       }
-      resultData.add(currectQuizResult);
+      resultData.add(quizResult);
+    }
+
+    // for (String key in quizResults.keys) {
+    //   QuizResult correctQuizResult = quizResults[key]!;
+
+    // }
+
+    Future<void> _showDialog(BuildContext context) async {
+      final String? value = SharedPrefs.getString("answers");
+
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text('Shared Preferences'),
+              content: Text('$value'),
+              actions: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          });
     }
 
     return Scaffold(
@@ -124,6 +162,12 @@ class ResultScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                          Expanded(
+                              child: RoundedButton(
+                                  text: 'Get SharedPrefs',
+                                  onPressed: () {
+                                    _showDialog(context);
+                                  })),
                         ],
                       ),
                     ),
