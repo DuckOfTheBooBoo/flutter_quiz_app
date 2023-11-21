@@ -9,10 +9,6 @@ import '../model/quiz_result.dart';
 
 class ResultArguments {
   final String quizName;
-  // final List<Question> questions;
-  // final Map<String, QuizResult> quizResults;
-
-  // ResultArguments(this.quizName, this.questions, this.quizResults);
   ResultArguments(this.quizName);
 }
 
@@ -45,32 +41,6 @@ class ResultScreen extends StatelessWidget {
         correctAnswerCount++;
       }
       resultData.add(quizResult);
-    }
-
-    // for (String key in quizResults.keys) {
-    //   QuizResult correctQuizResult = quizResults[key]!;
-
-    // }
-
-    Future<void> _showDialog(BuildContext context) async {
-      final String? value = SharedPrefs.getString("answers");
-
-      showDialog(
-          context: context,
-          builder: (context) {
-            return AlertDialog(
-              title: Text('Shared Preferences'),
-              content: Text('$value'),
-              actions: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('OK'),
-                ),
-              ],
-            );
-          });
     }
 
     return Scaffold(

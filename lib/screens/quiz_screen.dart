@@ -68,7 +68,6 @@ class _QuizScreenState extends State<QuizScreen> {
             }
 
             return Scaffold(
-              // TODO: fix back button icon not loaded
               appBar: CustomAppBar(title: args.quizName),
               body: WillPopScope(
                 onWillPop: () async {
@@ -169,10 +168,6 @@ class _QuizCardState extends State<QuizCard>
     setState(() {
       _selectedAnswer = value;
       String questionId = widget.question.id;
-      // widget.quizResult[questionId] = {
-      //   "correct_answer": widget.question.correctAnswer,
-      //   "selected_answer": _selectedAnswer
-      // };
       widget.quizResult[questionId]?.selectedAnswer = _selectedAnswer;
     });
   }
@@ -262,12 +257,6 @@ class _QuizCardState extends State<QuizCard>
                                   : RoundedButton(
                                       text: 'Submit',
                                       onPressed: () {
-                                        // Create QuizNameMap e.g.
-                                        //"Linux": {
-                                        //    int: quizResult.toMap()
-                                        // }
-                                        QuizNameMap quizNameMap = {};
-
                                         QuizAnswerMap answerMap = widget
                                             .quizResult
                                             .map((questionId, quizResult) =>
@@ -289,14 +278,6 @@ class _QuizCardState extends State<QuizCard>
                                         SharedPrefs.setString(
                                                 "answers", answersJson)
                                             .then((_) {
-                                          // Navigator.pushNamed(
-                                          //   context,
-                                          //   ResultScreen.routeName,
-                                          //   arguments: ResultArguments(
-                                          //       widget.quizName,
-                                          //       widget.questions,
-                                          //       widget.quizResult),
-                                          // );
                                           Navigator.pushNamed(
                                             context,
                                             ResultScreen.routeName,
