@@ -42,14 +42,12 @@ class _QuizScreenState extends State<QuizScreen> {
         curve: Curves.fastOutSlowIn);
   }
 
-  void resetState() {
-    _pageController.jumpToPage(0);
-  }
-
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as QuizArguments;
-    return FutureBuilder(
+      num screenSizeWidth = MediaQuery.of(context).size.width;
+
+      return FutureBuilder(
         future: getQuestions(args.quizName.toLowerCase()),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
@@ -123,10 +121,17 @@ class _QuizScreenState extends State<QuizScreen> {
               ),
             );
           } else {
-            return const CircularProgressIndicator();
+            return const Center(
+              child: SizedBox(
+                width: 100,
+                height: 100,
+                child: CircularProgressIndicator(),
+              ),
+            );
           }
-        });
-  }
+        },
+      );
+    }
 
   @override
   void dispose() {
@@ -178,6 +183,7 @@ class _QuizCardState extends State<QuizCard>
       padding: const EdgeInsets.all(10.0),
       child: Center(
         child: Container(
+          width: 400,
           decoration: ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(
@@ -269,8 +275,7 @@ class _QuizCardState extends State<QuizCard>
                                         Map<String, dynamic> answersMap =
                                             jsonDecode(answersJson);
 
-                                        answersMap[widget.quizName] =
-                                            answerMap;
+                                        answersMap[widget.quizName] = answerMap;
 
                                         // Encode to JSON String
                                         answersJson = jsonEncode(answersMap);
