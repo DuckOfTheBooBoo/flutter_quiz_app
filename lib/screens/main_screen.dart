@@ -1,5 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/components/quiz_gridview.dart';
+import 'package:flutter_quiz_app/components/quiz_listview.dart';
 import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
 import '../model/quiz.dart';
 import 'quiz_screen.dart';
@@ -23,97 +25,40 @@ class MainContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: quizez.length,
-      itemBuilder: (context, index) {
-        final Quiz quiz = quizez[index];
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        Size screenSize = MediaQuery.of(context).size;
+        int initialGridCount = 2;
 
-        return InkWell(
-          onTap: () {
-            String answersJson = SharedPrefs.getString("answers")!;
-            Map<String, dynamic> answersMap = jsonDecode(answersJson);
+        if (screenSize.width >= 500 && screenSize.width < 600) {
+          return QuizGridView(
+            quizez: quizez,
+            gridCount: initialGridCount,
+          );
+        }
 
-            Map<dynamic, dynamic> quizMap = answersMap[quiz.name]!;
+        if (screenSize.width >= 600 && screenSize.width < 700) {
+          return QuizGridView(
+            quizez: quizez,
+            gridCount: initialGridCount + 1,
+          );
+        }
 
-            if (quizMap.isNotEmpty) {
-              Navigator.pushNamed(
-                context,
-                ResultScreen.routeName,
-                arguments: ResultArguments(quiz.name)
-              );
-            } else {
-              Navigator.pushNamed(
-                context,
-                QuizScreen.routeName,
-                arguments: QuizArguments(quizName: quiz.name),
-              );
-            }
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            child: Container(
-              decoration: ShapeDecoration(
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(width: 2),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                shadows: const [
-                  BoxShadow(
-                    color: Color(0x3F000000),
-                    blurRadius: 4,
-                    offset: Offset(0, 4),
-                    spreadRadius: 0,
-                  ),
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 70,
-                      height: 70,
-                      decoration: ShapeDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              quiz.imageAsset,
-                            ),
-                            fit: BoxFit.cover,
-                          ),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15))),
-                    ),
-                    const SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          quiz.name,
-                          textAlign: TextAlign.left,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        Text(
-                          '${quiz.questionNum} questions',
-                          textAlign: TextAlign.left,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        );
+        if (screenSize.width >= 700 && screenSize.width < 1060) {
+          return QuizGridView(
+            quizez: quizez,
+            gridCount: initialGridCount + 2,
+          );
+        }
+
+        if (screenSize.width >= 1060) {
+          return QuizGridView(
+            quizez: quizez,
+            gridCount: initialGridCount + 3,
+          );
+        }
+
+        return QuizListView(quizez: quizez);
       },
     );
   }
