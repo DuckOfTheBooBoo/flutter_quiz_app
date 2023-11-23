@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_quiz_app/screens/quiz_screen.dart' show QuizScreen;
 import 'package:flutter_quiz_app/screens/result_screen.dart' show ResultScreen;
 import 'package:flutter_quiz_app/utils/populate_shared_pref.dart';
@@ -22,7 +23,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       routes: {
         QuizScreen.routeName: (context) => const QuizScreen(),
         ResultScreen.routeName: (context) => ResultScreen(),
