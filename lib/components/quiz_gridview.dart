@@ -19,7 +19,7 @@ class QuizGridView extends StatelessWidget {
         crossAxisCount: gridCount,
         children: quizez
             .map(
-              (quiz) => QuizGridCard(quiz: quiz),
+              (quiz) => QuizGridStack(quiz: quiz),
             )
             .toList(),
       ),
@@ -27,9 +27,9 @@ class QuizGridView extends StatelessWidget {
   }
 }
 
-class QuizGridCard extends StatelessWidget {
+class QuizGridStack extends StatelessWidget {
   final Quiz quiz;
-  const QuizGridCard({Key? key, required this.quiz}) : super(key: key);
+  const QuizGridStack({Key? key, required this.quiz}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,36 +52,65 @@ class QuizGridCard extends StatelessWidget {
           );
         }
       },
-      child: Card(
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15.0)),
-            side: BorderSide(color: Colors.black, width: 2.0)),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Image.asset(
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Container(
+          decoration: ShapeDecoration(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: const BorderSide(width: 1),
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.asset(
                   quiz.imageAsset,
-                  fit: BoxFit.contain,
+                  fit: BoxFit.fitWidth,
                 ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    quiz.name,
-                    textAlign: TextAlign.start,
-                    style: const TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  Text('10 questions')
-                ],
-              ),
-            ],
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      decoration: const BoxDecoration(
+                        color: Color.fromRGBO(168, 168, 168, 0.8),
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              quiz.name,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 32,
+                              ),
+                            ),
+                            const Text(
+                              '10 questions',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
