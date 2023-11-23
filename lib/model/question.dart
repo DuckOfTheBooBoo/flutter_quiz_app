@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
 
 Question questionsFromJson(String str) => Question.fromMap(json.decode(str));

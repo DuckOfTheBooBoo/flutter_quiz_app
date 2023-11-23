@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/components/quiz_gridview.dart';
 import 'package:flutter_quiz_app/components/quiz_listview.dart';
 import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
-import '../model/quiz.dart';
+import 'package:flutter_quiz_app/model/quiz.dart';
 import 'quiz_screen.dart';
-import '../components/custom_appbar.dart';
+import 'package:flutter_quiz_app/components/custom_appbar.dart';
 import 'result_screen.dart';
 
 class MainScreen extends StatelessWidget {

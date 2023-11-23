@@ -2,11 +2,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/screens/quiz_screen.dart';
 import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
-import '../components/quiz_box.dart';
-import '../components/rounded_button.dart';
-import '../constants.dart';
-import '../model/question.dart';
-import '../model/quiz_result.dart';
+import 'package:flutter_quiz_app/components/quiz_box.dart';
+import 'package:flutter_quiz_app/components/rounded_button.dart';
+import 'package:flutter_quiz_app/constants.dart';
+import 'package:flutter_quiz_app/model/question.dart';
+import 'package:flutter_quiz_app/model/quiz_result.dart';
 
 class ResultArguments {
   final String quizName;

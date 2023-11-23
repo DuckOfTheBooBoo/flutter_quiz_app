@@ -3,12 +3,12 @@ import 'dart:ui';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
-import '../components/custom_appbar.dart';
-import '../components/rounded_button.dart';
-import '../constants.dart';
-import '../model/question.dart';
-import '../model/quiz_result.dart';
-import '../screens/result_screen.dart';
+import 'package:flutter_quiz_app/components/custom_appbar.dart';
+import 'package:flutter_quiz_app/components/rounded_button.dart';
+import 'package:flutter_quiz_app/constants.dart';
+import 'package:flutter_quiz_app/model/question.dart';
+import 'package:flutter_quiz_app/model/quiz_result.dart';
+import 'package:flutter_quiz_app/screens/result_screen.dart';
 
 class QuizArguments {
   final String quizName;
@@ -45,7 +45,6 @@ class _QuizScreenState extends State<QuizScreen> {
   @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as QuizArguments;
-      num screenSizeWidth = MediaQuery.of(context).size.width;
 
       return FutureBuilder(
         future: getQuestions(args.quizName.toLowerCase()),
