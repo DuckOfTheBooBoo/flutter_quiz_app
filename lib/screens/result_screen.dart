@@ -112,7 +112,6 @@ class ResultPotraitMode extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 32,
                         fontWeight: FontWeight.bold
-                        // TODO: Change font family
                         ),
                   ),
                   Text(
@@ -122,7 +121,6 @@ class ResultPotraitMode extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 64,
                         fontWeight: FontWeight.bold
-                        // TODO: Change font family
                         ),
                   ),
                   const Text(
@@ -132,7 +130,6 @@ class ResultPotraitMode extends StatelessWidget {
                         color: Colors.black,
                         fontSize: 32,
                         fontWeight: FontWeight.bold
-                        // TODO: Change font family
                         ),
                   ),
                 ],
@@ -201,7 +198,6 @@ class ResultPotraitMode extends StatelessWidget {
                     color: Colors.black,
                     fontSize: 40,
                     fontWeight: FontWeight.bold
-                    // TODO: Change font family
                     ),
               ),
             ),
@@ -227,12 +223,12 @@ class ResultLandscapeMode extends StatelessWidget {
   final String quizName;
   final ResultData resultData;
   const ResultLandscapeMode({
-    Key? key,
+    super.key,
     required this.correctAnswerCount,
     required this.questions,
     required this.quizName,
     required this.resultData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -255,7 +251,6 @@ class ResultLandscapeMode extends StatelessWidget {
                           color: Colors.black,
                           fontSize: 64,
                           fontWeight: FontWeight.bold
-                          // TODO: Change font family
                           ),
                     ),
                     Text(
@@ -265,7 +260,6 @@ class ResultLandscapeMode extends StatelessWidget {
                           color: Colors.black,
                           fontSize: 128,
                           fontWeight: FontWeight.bold
-                          // TODO: Change font family
                           ),
                     ),
                     const Text(
@@ -275,7 +269,6 @@ class ResultLandscapeMode extends StatelessWidget {
                           color: Colors.black,
                           fontSize: 64,
                           fontWeight: FontWeight.bold
-                          // TODO: Change font family
                           ),
                     ),
                   ],
@@ -347,7 +340,6 @@ class ResultLandscapeMode extends StatelessWidget {
                           color: Colors.black,
                           fontSize: 40,
                           fontWeight: FontWeight.bold
-                          // TODO: Change font family
                           ),
                     ),
                   ),

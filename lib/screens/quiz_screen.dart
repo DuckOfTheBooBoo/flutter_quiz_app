@@ -89,7 +89,6 @@ class _QuizScreenState extends State<QuizScreen> {
                         ],
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
-                          // TODO: make border thicker
                           side: const BorderSide(width: 2),
                         ),
                       ),

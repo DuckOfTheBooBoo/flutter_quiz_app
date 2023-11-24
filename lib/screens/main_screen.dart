@@ -1,12 +1,8 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/components/quiz_gridview.dart';
 import 'package:flutter_quiz_app/components/quiz_listview.dart';
-import 'package:flutter_quiz_app/utils/shared_preferences_util.dart';
 import 'package:flutter_quiz_app/model/quiz.dart';
-import 'quiz_screen.dart';
 import 'package:flutter_quiz_app/components/custom_appbar.dart';
-import 'result_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});

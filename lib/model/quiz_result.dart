@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:flutter_quiz_app/constants.dart';
 import 'package:flutter_quiz_app/model/question.dart' show Question;
 
