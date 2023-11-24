@@ -146,7 +146,7 @@ class ResultPotraitMode extends StatelessWidget {
                     Expanded(
                       child: RoundedButton(
                         text: 'Try Again',
-                        onPressed: () async {
+                        onPressed: () {
                           String answersJson =
                               SharedPrefs.getString("answers")!;
                           Map<String, dynamic> answersMap =

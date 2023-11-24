@@ -7,7 +7,6 @@ import 'package:flutter_quiz_app/utils/shared_preferences_util.dart'
     show SharedPrefs;
 import 'screens/main_screen.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // Initialize Shared Preferences
